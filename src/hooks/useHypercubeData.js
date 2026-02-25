@@ -19,6 +19,7 @@ const DISPLAY_SPHERIFY_AMOUNT = Number.isFinite(Number(import.meta.env.VITE_DISP
 
 function withCacheBust(url, cacheBust) {
   if (!cacheBust) return url
+  if (String(url).startsWith('data:')) return url
   return `${url}${url.includes('?') ? '&' : '?'}v=${cacheBust}`
 }
 
