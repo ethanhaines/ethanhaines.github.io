@@ -41,10 +41,17 @@ function buildUrl(filePath, cacheBust) {
 }
 
 async function fetchJson(filePath, { signal, cacheBust }) {
-  const response = await fetch(buildUrl(filePath, cacheBust), {
-    signal,
-    cache: 'no-store'
-  })
+  const url = buildUrl(filePath, cacheBust)
+  const isDataUrl = url.startsWith('data:')
+  const response = await fetch(
+    url,
+    isDataUrl
+      ? { signal }
+      : {
+          signal,
+          cache: 'no-store'
+        }
+  )
 
   if (!response.ok) {
     throw new Error(`Failed to load ${filePath} (${response.status})`)
