@@ -1,0 +1,26 @@
+# Python venv from local experimentation / exports
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+
+# Node / build output
+node_modules/
+dist/
+.vite/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Keep exported JSON package tracked, but ignore any future large assets dropped here
+hypercube_test/*
+!hypercube_test/
+!hypercube_test/*.json
+hypercube/
