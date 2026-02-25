@@ -527,7 +527,7 @@ textarea {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px) and (hover: none), (max-width: 720px) and (pointer: coarse) {
   .app-shell {
     overflow: auto;
     min-height: 100dvh;
@@ -589,7 +589,9 @@ textarea {
   .detail-grid {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 720px) {
   .tab-button {
     font-size: 0.68rem;
     padding: 7px 8px 7px 0;
