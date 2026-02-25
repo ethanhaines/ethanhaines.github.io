@@ -107,6 +107,7 @@ export default function App() {
             />
 
             {data ? <SpeciesRail speciesLegend={data.speciesLegend} /> : null}
+            <ProjectAbstractPanel />
 
             {deferredHoverState && hoveredNode ? (
               <Tooltip hoverState={deferredHoverState} node={hoveredNode} />
@@ -172,12 +173,17 @@ function SpeciesRail({ speciesLegend }) {
 
 function BottomDetailPanel({ node, data, selectedNode }) {
   if (!data || !node) return null
+  const thumbnailUrl = selectedNode ? buildThumbnailUrl(selectedNode) : null
 
   return (
     <section className="floating-panel bottom-panel" aria-live="polite">
       <div className="mono-label">
         {selectedNode ? 'Selected Grain' : 'Hovered Grain'}
       </div>
+
+      {thumbnailUrl ? (
+        <ThumbnailPreview src={thumbnailUrl} alt={`${node.filename} thumbnail`} />
+      ) : null}
 
       <h2 className="detail-title">{node.filename}</h2>
       <div className="detail-grid">
@@ -191,6 +197,45 @@ function BottomDetailPanel({ node, data, selectedNode }) {
         </div>
       </div>
     </section>
+  )
+}
+
+function ProjectAbstractPanel() {
+  return (
+    <aside className="floating-panel abstract-panel" aria-label="Project abstract">
+      <p className="abstract-copy">
+        NEST builds a searchable pollen database using DINOv3 embeddings and FAISS nearest-neighbor
+        search so a fossil pollen query can be matched to the closest extant species in feature
+        space.
+      </p>
+      <p className="abstract-copy">
+        The retrieval pipeline is feature-driven rather than color-driven, emphasizing morphology
+        and structural similarity over color variation due to staining. Images are captured on a Keyence VHX-7000
+        at 1000x magnification.
+      </p>
+    </aside>
+  )
+}
+
+function ThumbnailPreview({ src, alt }) {
+  const [hasError, setHasError] = useState(false)
+
+  useEffect(() => {
+    setHasError(false)
+  }, [src])
+
+  if (!src || hasError) return null
+
+  return (
+    <div className="detail-thumb">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onError={() => setHasError(true)}
+      />
+    </div>
   )
 }
 
@@ -232,4 +277,14 @@ function prettifySpecies(value) {
   return String(value ?? '')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, (match) => match.toUpperCase())
+}
+
+function buildThumbnailUrl(node) {
+  const species = String(node?.species ?? '').trim()
+  const cropSize = String(node?.crop_size ?? '').trim()
+  const filename = String(node?.filename ?? '').trim()
+
+  if (!species || !cropSize || !filename) return null
+
+  return `/${encodeURIComponent(species)}/${encodeURIComponent(cropSize)}/${encodeURIComponent(filename)}`
 }

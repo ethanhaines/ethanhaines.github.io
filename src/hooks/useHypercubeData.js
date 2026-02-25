@@ -1,17 +1,43 @@
 import { useEffect, useState } from 'react'
+import manifestLocalUrl from '../../hypercube/manifest.json?url'
+import nodesLocalUrl from '../../hypercube/nodes.json?url'
+import edgesLocalUrl from '../../hypercube/edges.json?url'
+import speciesLocalUrl from '../../hypercube/species.json?url'
 
 const DATA_PREFIX = (import.meta.env.VITE_DATA_PREFIX ?? '').replace(/\/+$/, '')
+const LOCAL_DATA_URLS = {
+  'manifest.json': manifestLocalUrl,
+  'nodes.json': nodesLocalUrl,
+  'edges.json': edgesLocalUrl,
+  'species.json': speciesLocalUrl
+}
 const DISPLAY_GLOBAL_SCALE = 0.95
 const DISPLAY_SHAPE_MODE = String(import.meta.env.VITE_DISPLAY_SHAPE_MODE ?? 'freeform').toLowerCase()
 const DISPLAY_SPHERIFY_AMOUNT = Number.isFinite(Number(import.meta.env.VITE_DISPLAY_SPHERIFY_AMOUNT))
   ? Number(import.meta.env.VITE_DISPLAY_SPHERIFY_AMOUNT)
   : 0.82
 
+function withCacheBust(url, cacheBust) {
+  if (!cacheBust) return url
+  return `${url}${url.includes('?') ? '&' : '?'}v=${cacheBust}`
+}
+
 function buildUrl(filePath, cacheBust) {
-  const clean = String(filePath || '').replace(/^\/+/, '')
-  const base = DATA_PREFIX ? `/${DATA_PREFIX}` : ''
-  const url = `${base}/${clean}`
-  return cacheBust ? `${url}?v=${cacheBust}` : url
+  const clean = String(filePath || '')
+    .replace(/\\/g, '/')
+    .replace(/^\.?\//, '')
+    .replace(/^\/+/, '')
+
+  if (DATA_PREFIX) {
+    return withCacheBust(`/${DATA_PREFIX}/${clean}`, cacheBust)
+  }
+
+  const localAssetUrl = LOCAL_DATA_URLS[clean]
+  if (localAssetUrl) {
+    return withCacheBust(localAssetUrl, cacheBust)
+  }
+
+  return withCacheBust(`/${clean}`, cacheBust)
 }
 
 async function fetchJson(filePath, { signal, cacheBust }) {

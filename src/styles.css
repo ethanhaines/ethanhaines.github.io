@@ -314,6 +314,26 @@ textarea {
   margin-bottom: 10px;
 }
 
+.abstract-panel {
+  right: 24px;
+  bottom: 24px;
+  width: min(300px, calc(100vw - 48px));
+  padding: 12px;
+}
+
+.abstract-copy {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.abstract-copy + .abstract-copy {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
 .species-list {
   display: flex;
   flex-direction: column;
@@ -366,6 +386,23 @@ textarea {
   font-size: 0.94rem;
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
+}
+
+.detail-thumb {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.detail-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .detail-grid {
@@ -479,6 +516,12 @@ textarea {
     max-height: 220px;
   }
 
+  .abstract-panel {
+    right: 24px;
+    bottom: 260px;
+    width: min(320px, calc(100vw - 48px));
+  }
+
   .bottom-panel {
     width: min(460px, calc(100vw - 48px));
   }
@@ -501,6 +544,13 @@ textarea {
     right: 16px;
     width: auto;
     bottom: 132px;
+  }
+
+  .abstract-panel {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    bottom: 300px;
   }
 
   .bottom-panel {
