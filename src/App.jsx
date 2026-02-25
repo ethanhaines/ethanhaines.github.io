@@ -2,10 +2,12 @@ import { startTransition, useDeferredValue, useEffect, useMemo, useState } from 
 import HypercubeCanvas from './components/HypercubeCanvas'
 import { useHypercubeData } from './hooks/useHypercubeData'
 
+const SHOW_UNFINISHED_TABS = false
+
 const TABS = [
-  { id: 'NEST', label: 'NEST' },
-  { id: 'ALAN', label: 'ALAN' },
-  { id: 'TRADING_BOT', label: 'Algorithmic Trading Bot' }
+  { id: 'NEST', label: 'NEST', enabled: true },
+  { id: 'ALAN', label: 'ALAN', enabled: SHOW_UNFINISHED_TABS },
+  { id: 'TRADING_BOT', label: 'Algorithmic Trading Bot', enabled: SHOW_UNFINISHED_TABS }
 ]
 
 export default function App() {
@@ -49,7 +51,7 @@ export default function App() {
         </div>
 
         <nav className="tab-nav" aria-label="Portfolio projects">
-          {TABS.map((tab) => (
+          {TABS.filter((tab) => tab.enabled).map((tab) => (
             <button
               key={tab.id}
               type="button"
@@ -83,7 +85,7 @@ export default function App() {
                   <div className="scene-placeholder-inner">
                     <div className="mono-label">NEST</div>
                     <h1 className="scene-title">
-                      {status === 'error' ? 'Data load failed' : 'Loading hypercube'}
+                      {status === 'error' ? 'Data load failed' : 'Loading t-SNE map'}
                     </h1>
                     <p className="scene-copy">
                       {status === 'error'
@@ -286,5 +288,6 @@ function buildThumbnailUrl(node) {
 
   if (!species || !cropSize || !filename) return null
 
-  return `/${encodeURIComponent(species)}/${encodeURIComponent(cropSize)}/${encodeURIComponent(filename)}`
+  const base = String(import.meta.env.BASE_URL ?? '/').replace(/\/+$/, '')
+  return `${base}/${encodeURIComponent(species)}/${encodeURIComponent(cropSize)}/${encodeURIComponent(filename)}`
 }

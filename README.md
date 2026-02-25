@@ -18,14 +18,14 @@ npm run dev
 
 ## Data Package Refresh Workflow
 
-This app treats `hypercube_test/` as Vite's `publicDir`, so the exported JSON files are served directly by the frontend.
+This app loads the exported graph package JSON from the local `tsne/` folder (bundled as static assets by Vite).
 
 When you regenerate the package from `export_hypercube_package.py`, replace:
 
-- `hypercube_test/manifest.json`
-- `hypercube_test/nodes.json`
-- `hypercube_test/edges.json`
-- `hypercube_test/species.json`
+- `tsne/manifest.json`
+- `tsne/nodes.json`
+- `tsne/edges.json`
+- `tsne/species.json`
 
 Then refresh the page or click the in-app `Reload Data` button.
 

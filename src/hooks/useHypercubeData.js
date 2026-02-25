@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import manifestLocalUrl from '../../hypercube/manifest.json?url'
-import nodesLocalUrl from '../../hypercube/nodes.json?url'
-import edgesLocalUrl from '../../hypercube/edges.json?url'
-import speciesLocalUrl from '../../hypercube/species.json?url'
+import manifestLocalUrl from '../../tsne/manifest.json?url'
+import nodesLocalUrl from '../../tsne/nodes.json?url'
+import edgesLocalUrl from '../../tsne/edges.json?url'
+import speciesLocalUrl from '../../tsne/species.json?url'
 
 const DATA_PREFIX = (import.meta.env.VITE_DATA_PREFIX ?? '').replace(/\/+$/, '')
 const LOCAL_DATA_URLS = {

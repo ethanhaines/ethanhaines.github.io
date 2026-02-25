@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 const GRAPH_SCALE = 1.45
@@ -31,7 +31,6 @@ export default function HypercubeCanvas({
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [0, 0.25, 4.4], fov: 50, near: 0.1, far: 100 }}
-        raycaster={{ params: { Points: { threshold: 0.035 } } }}
         gl={{ antialias: true, alpha: true }}
         onPointerMissed={(event) => {
           if (event.type === 'click') onSelectIndex(null)
@@ -77,18 +76,11 @@ function NetworkObject({
   autoRotate
 }) {
   const groupRef = useRef(null)
+  const crystalMeshRef = useRef(null)
 
   const speciesColorByKey = useMemo(() => {
     return new Map(data.speciesLegend.map((entry) => [entry.species, entry.color?.hex ?? '#111111']))
   }, [data.speciesLegend])
-
-  const pointsGeometry = useMemo(() => {
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(data.positions, 3))
-    geometry.setAttribute('color', new THREE.BufferAttribute(data.colors, 3))
-    geometry.computeBoundingSphere()
-    return geometry
-  }, [data.positions, data.colors])
 
   const baseEdgesGeometry = useMemo(() => {
     const geometry = new THREE.BufferGeometry()
@@ -97,12 +89,44 @@ function NetworkObject({
     return geometry
   }, [data.baseEdgePositions])
 
+  useLayoutEffect(() => {
+    const mesh = crystalMeshRef.current
+    if (!mesh) return
+
+    const tempObject = new THREE.Object3D()
+    const tempColor = new THREE.Color()
+
+    for (let index = 0; index < data.nodes.length; index += 1) {
+      const node = data.nodes[index]
+      const p = node.displayPosition ?? node.position ?? { x: 0, y: 0, z: 0 }
+
+      const seedA = fract(Math.sin((node.id + 1) * 12.9898) * 43758.5453)
+      const seedB = fract(Math.sin((node.id + 1) * 78.233) * 12345.6789)
+      const seedC = fract(Math.sin((node.id + 1) * 31.4159) * 98765.4321)
+
+      const scale = 0.012 + seedA * 0.008
+
+      tempObject.position.set(p.x ?? 0, p.y ?? 0, p.z ?? 0)
+      tempObject.rotation.set(seedA * Math.PI, seedB * Math.PI, seedC * Math.PI)
+      tempObject.scale.setScalar(scale)
+      tempObject.updateMatrix()
+      mesh.setMatrixAt(index, tempObject.matrix)
+
+      const o = index * 3
+      tempColor.setRGB(data.colors[o] ?? 0.07, data.colors[o + 1] ?? 0.07, data.colors[o + 2] ?? 0.07)
+      mesh.setColorAt(index, tempColor)
+    }
+
+    mesh.instanceMatrix.needsUpdate = true
+    if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true
+    mesh.computeBoundingSphere?.()
+  }, [data.colors, data.nodes])
+
   useEffect(() => {
     return () => {
-      pointsGeometry.dispose()
       baseEdgesGeometry.dispose()
     }
-  }, [pointsGeometry, baseEdgesGeometry])
+  }, [baseEdgesGeometry])
 
   useFrame((_, delta) => {
     if (!groupRef.current || !autoRotate) return
@@ -117,17 +141,18 @@ function NetworkObject({
   return (
     <group ref={groupRef} scale={GRAPH_SCALE}>
       <lineSegments geometry={baseEdgesGeometry}>
-        <lineBasicMaterial color="#111111" transparent opacity={0.03} depthWrite={false} />
+        <lineBasicMaterial color="#111111" transparent opacity={0.055} depthWrite={false} />
       </lineSegments>
 
-      <points
-        geometry={pointsGeometry}
+      <instancedMesh
+        ref={crystalMeshRef}
+        args={[null, null, data.nodes.length]}
         onPointerMove={(event) => {
           event.stopPropagation()
-          if (event.index == null) return
+          if (event.instanceId == null) return
           const sourceEvent = event.sourceEvent ?? event
           onHoverChange({
-            index: event.index,
+            index: event.instanceId,
             x: sourceEvent.clientX ?? 0,
             y: sourceEvent.clientY ?? 0
           })
@@ -138,27 +163,26 @@ function NetworkObject({
         }}
         onClick={(event) => {
           event.stopPropagation()
-          if (event.index == null) return
-          onSelectIndex(event.index)
+          if (event.instanceId == null) return
+          onSelectIndex(event.instanceId)
         }}
       >
-        <pointsMaterial
-          vertexColors
-          size={0.038}
-          sizeAttenuation
-          transparent
-          opacity={0.9}
-          depthWrite
+        <octahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial
+          color="#ffffff"
+          metalness={0.06}
+          roughness={0.34}
+          flatShading
         />
-      </points>
+      </instancedMesh>
 
       {hoveredNode ? (
         <NodeMarker
           node={hoveredNode}
           color={speciesColorByKey.get(hoveredNode.species) ?? '#111111'}
-          scale={0.05}
-          opacity={0.65}
-          wireOpacity={0.6}
+          scale={0.036}
+          opacity={0.58}
+          wireOpacity={0.42}
         />
       ) : null}
 
@@ -166,9 +190,9 @@ function NetworkObject({
         <NodeMarker
           node={selectedNode}
           color={speciesColorByKey.get(selectedNode.species) ?? '#111111'}
-          scale={0.06}
-          opacity={0.92}
-          wireOpacity={0.9}
+          scale={0.045}
+          opacity={0.86}
+          wireOpacity={0.82}
         />
       ) : null}
     </group>
@@ -178,15 +202,32 @@ function NetworkObject({
 function NodeMarker({ node, color, scale, opacity, wireOpacity }) {
   const p = node.displayPosition ?? node.position
   return (
-    <group position={[p?.x ?? 0, p?.y ?? 0, p?.z ?? 0]} rotation={[0.6, 0.6, 0]}>
+    <group position={[p?.x ?? 0, p?.y ?? 0, p?.z ?? 0]} rotation={[0.6, 0.6, 0]} renderOrder={5}>
       <mesh>
         <octahedronGeometry args={[scale, 0]} />
-        <meshBasicMaterial color="#111111" wireframe transparent opacity={wireOpacity} />
+        <meshBasicMaterial
+          color="#111111"
+          wireframe
+          transparent
+          opacity={wireOpacity}
+          depthTest={false}
+          depthWrite={false}
+        />
       </mesh>
       <mesh>
         <sphereGeometry args={[scale * 0.3, 10, 10]} />
-        <meshBasicMaterial color={color} transparent opacity={opacity} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={opacity}
+          depthTest={false}
+          depthWrite={false}
+        />
       </mesh>
     </group>
   )
+}
+
+function fract(value) {
+  return value - Math.floor(value)
 }
