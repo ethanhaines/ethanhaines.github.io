@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 
 const DATA_PREFIX = (import.meta.env.VITE_DATA_PREFIX ?? '').replace(/\/+$/, '')
 const DISPLAY_GLOBAL_SCALE = 0.95
-const DISPLAY_SPHERIFY_AMOUNT = 0.82
+const DISPLAY_SHAPE_MODE = String(import.meta.env.VITE_DISPLAY_SHAPE_MODE ?? 'freeform').toLowerCase()
+const DISPLAY_SPHERIFY_AMOUNT = Number.isFinite(Number(import.meta.env.VITE_DISPLAY_SPHERIFY_AMOUNT))
+  ? Number(import.meta.env.VITE_DISPLAY_SPHERIFY_AMOUNT)
+  : 0.82
 
 function buildUrl(filePath, cacheBust) {
   const clean = String(filePath || '').replace(/^\/+/, '')
@@ -106,15 +109,29 @@ function cubeToSphere(position) {
 }
 
 function stylizeDisplayPosition(position) {
-  // Clamp extreme values lightly before spherifying.
-  const base = {
-    x: Math.max(-1, Math.min(1, position.x ?? 0)),
-    y: Math.max(-1, Math.min(1, position.y ?? 0)),
-    z: Math.max(-1, Math.min(1, position.z ?? 0))
+  const raw = {
+    x: position.x ?? 0,
+    y: position.y ?? 0,
+    z: position.z ?? 0
   }
 
+  // Default: preserve the exporter-provided cloud shape (free-form).
+  if (DISPLAY_SHAPE_MODE !== 'spherify') {
+    return {
+      x: raw.x * DISPLAY_GLOBAL_SCALE,
+      y: raw.y * DISPLAY_GLOBAL_SCALE,
+      z: raw.z * DISPLAY_GLOBAL_SCALE
+    }
+  }
+
+  // Legacy mode for comparison: remap normalized positions toward a sphere.
+  const base = {
+    x: Math.max(-1, Math.min(1, raw.x)),
+    y: Math.max(-1, Math.min(1, raw.y)),
+    z: Math.max(-1, Math.min(1, raw.z))
+  }
   const sphere = cubeToSphere(base)
-  const t = DISPLAY_SPHERIFY_AMOUNT
+  const t = Math.max(0, Math.min(1, DISPLAY_SPHERIFY_AMOUNT))
 
   return {
     x: (base.x + (sphere.x - base.x) * t) * DISPLAY_GLOBAL_SCALE,

@@ -33,7 +33,7 @@ export default function App() {
   const panelNode = selectedNode ?? hoveredNode
 
   const projectSubtitle = useMemo(() => {
-    if (activeTab === 'NEST') return 'Pollen Embedding Space / GrainBrain'
+    if (activeTab === 'NEST') return 'Nearest Extant Similarity Tool'
     if (activeTab === 'ALAN') return 'Portfolio Project / Placeholder'
     return 'Portfolio Project / Placeholder'
   }, [activeTab])
@@ -102,11 +102,8 @@ export default function App() {
             </div>
 
             <TopInfoPanel
-              status={status}
               data={data}
               onReload={reload}
-              selectedNode={selectedNode}
-              hoveredNode={hoveredNode}
             />
 
             {data ? <SpeciesRail speciesLegend={data.speciesLegend} /> : null}
@@ -125,51 +122,25 @@ export default function App() {
   )
 }
 
-function TopInfoPanel({ status, data, onReload, selectedNode, hoveredNode }) {
-  const focus = selectedNode ?? hoveredNode
-
+function TopInfoPanel({ data, onReload }) {
   return (
     <section className="floating-panel top-panel" aria-live="polite">
-      <div className="panel-row">
-        <span className="mono-label">Status</span>
-        <span className={`status-dot status-${status}`} />
-        <span className="panel-value">
-          {status === 'ready' ? 'Interactive' : status === 'loading' ? 'Loading' : 'Error'}
-        </span>
-      </div>
-
       {data ? (
         <>
           <div className="panel-row">
             <span className="mono-label">Nodes</span>
-            <span className="panel-value">{data.manifest?.counts?.nodes ?? data.nodes.length}</span>
-          </div>
-          <div className="panel-row">
-            <span className="mono-label">Edges</span>
-            <span className="panel-value">{data.manifest?.counts?.edges ?? data.edges.length}</span>
+            <span className="panel-value panel-value-single">
+              {data.manifest?.counts?.nodes ?? data.nodes.length}
+            </span>
           </div>
           <div className="panel-row">
             <span className="mono-label">Species</span>
-            <span className="panel-value">
+            <span className="panel-value panel-value-single">
               {data.manifest?.counts?.species ?? data.species.length}
             </span>
           </div>
         </>
       ) : null}
-
-      {focus ? (
-        <div className="panel-focus">
-          <div className="mono-label">Focus</div>
-          <div className="focus-title">{prettifySpecies(focus.species)}</div>
-          <div className="focus-meta">{focus.filename}</div>
-        </div>
-      ) : (
-        <div className="panel-focus muted">
-          <div className="mono-label">Focus</div>
-          <div className="focus-title">Hover or click a node</div>
-          <div className="focus-meta">Orbit, zoom, inspect neighborhoods</div>
-        </div>
-      )}
 
       <button className="ghost-button" type="button" onClick={onReload}>
         Reload Data
@@ -200,43 +171,25 @@ function SpeciesRail({ speciesLegend }) {
 }
 
 function BottomDetailPanel({ node, data, selectedNode }) {
-  if (!data) return null
+  if (!data || !node) return null
 
   return (
     <section className="floating-panel bottom-panel" aria-live="polite">
       <div className="mono-label">
-        {selectedNode ? 'Selected Grain' : node ? 'Hovered Grain' : 'Manifest Notes'}
+        {selectedNode ? 'Selected Grain' : 'Hovered Grain'}
       </div>
 
-      {node ? (
-        <>
-          <h2 className="detail-title">{node.filename}</h2>
-          <div className="detail-grid">
-            <div className="detail-item">
-              <span className="detail-key">Species</span>
-              <span className="detail-value">{prettifySpecies(node.species)}</span>
-            </div>
-            <div className="detail-item">
-              <span className="detail-key">Crop</span>
-              <span className="detail-value">{node.crop_size}</span>
-            </div>
-            <div className="detail-item">
-              <span className="detail-key">Node ID</span>
-              <span className="detail-value">{node.id}</span>
-            </div>
-            <div className="detail-item">
-              <span className="detail-key">Path</span>
-              <span className="detail-value detail-path">{node.path}</span>
-            </div>
-          </div>
-        </>
-      ) : (
-        <ul className="notes-list">
-          {(data.manifest?.notes ?? []).map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ul>
-      )}
+      <h2 className="detail-title">{node.filename}</h2>
+      <div className="detail-grid">
+        <div className="detail-item">
+          <span className="detail-key">Species</span>
+          <span className="detail-value">{prettifySpecies(node.species)}</span>
+        </div>
+        <div className="detail-item">
+          <span className="detail-key">Node ID</span>
+          <span className="detail-value">{node.id}</span>
+        </div>
+      </div>
     </section>
   )
 }

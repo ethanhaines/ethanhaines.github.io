@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
   --bg: #f6f5f1;
-  --paper: rgba(255, 255, 255, 0.72);
-  --paper-strong: rgba(255, 255, 255, 0.9);
+  --paper: rgba(255, 255, 255, 0.78);
+  --paper-strong: rgba(255, 255, 255, 0.94);
   --ink: #111111;
-  --muted: #676767;
+  --muted: #111111;
   --line: rgba(17, 17, 17, 0.08);
   --shadow: 0 18px 45px rgba(10, 10, 10, 0.08);
 }
@@ -25,7 +25,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Space Mono', 'IBM Plex Mono', monospace;
 }
 
 button,
@@ -73,23 +73,24 @@ textarea {
 
 .brand-name {
   font-size: clamp(1.05rem, 2vw, 1.45rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .brand-subtitle {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--ink);
 }
 
 .tab-nav {
   margin-top: 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -97,25 +98,33 @@ textarea {
   border: 1px solid transparent;
   background: transparent;
   color: var(--ink);
-  border-radius: 999px;
-  padding: 8px 12px;
+  border-radius: 0;
+  padding: 6px 8px 6px 0;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.72rem;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  position: relative;
+  transition: opacity 120ms ease;
 }
 
 .tab-button:hover {
-  border-color: var(--line);
-  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.72;
 }
 
 .tab-button.is-active {
-  border-color: rgba(17, 17, 17, 0.14);
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  opacity: 1;
+}
+
+.tab-button.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 6px;
+  bottom: 0;
+  height: 1px;
+  background: #111111;
 }
 
 .main-stage {
@@ -146,7 +155,8 @@ textarea {
   border: 1px solid var(--line);
   background: var(--paper);
   backdrop-filter: blur(8px);
-  border-radius: 18px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
   box-shadow: var(--shadow);
   padding: 18px;
 }
@@ -160,7 +170,7 @@ textarea {
 
 .scene-copy {
   margin: 0;
-  color: var(--muted);
+  color: var(--ink);
   line-height: 1.5;
 }
 
@@ -171,7 +181,8 @@ textarea {
   background: var(--paper);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
-  border-radius: 16px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
 }
 
 .top-panel {
@@ -194,12 +205,16 @@ textarea {
   font-size: 0.9rem;
 }
 
+.panel-value-single {
+  grid-column: 3;
+}
+
 .mono-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.66rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .status-dot {
@@ -228,7 +243,7 @@ textarea {
 }
 
 .panel-focus.muted {
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .focus-title {
@@ -239,7 +254,7 @@ textarea {
 
 .focus-meta {
   margin-top: 2px;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 0.86rem;
   line-height: 1.4;
   word-break: break-word;
@@ -248,9 +263,9 @@ textarea {
 .ghost-button {
   margin-top: 12px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 0;
   border: 1px solid rgba(17, 17, 17, 0.12);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--ink);
   padding: 9px 12px;
   cursor: pointer;
@@ -273,6 +288,26 @@ textarea {
   max-height: min(420px, calc(100vh - 48px));
   padding: 12px;
   overflow: auto;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.93), rgba(245, 245, 241, 0.93)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(17, 17, 17, 0.025) 0px,
+      rgba(17, 17, 17, 0.025) 1px,
+      transparent 1px,
+      transparent 16px
+    );
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  border: 1px solid rgba(17, 17, 17, 0.14);
+}
+
+.species-rail::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  pointer-events: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
 .rail-title {
@@ -283,22 +318,28 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  position: relative;
+  z-index: 1;
 }
 
 .species-row {
   display: grid;
-  grid-template-columns: 12px 1fr auto;
+  grid-template-columns: 8px 1fr auto;
   align-items: center;
   gap: 10px;
-  padding: 6px 8px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.42);
+  padding: 7px 10px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
 .species-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 4px;
+  height: 18px;
+  border-radius: 0;
+  justify-self: center;
+  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.05);
 }
 
 .species-name {
@@ -309,20 +350,20 @@ textarea {
 .species-count {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.74rem;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 .bottom-panel {
   left: 24px;
   right: 24px;
   bottom: 24px;
-  width: min(760px, calc(100vw - 48px));
-  padding: 14px;
+  width: min(460px, calc(100vw - 48px));
+  padding: 12px;
 }
 
 .detail-title {
-  margin: 10px 0 12px;
-  font-size: 1rem;
+  margin: 8px 0 10px;
+  font-size: 0.94rem;
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
 }
@@ -335,8 +376,9 @@ textarea {
 
 .detail-item {
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  padding: 9px;
   background: rgba(255, 255, 255, 0.42);
 }
 
@@ -346,7 +388,7 @@ textarea {
   font-size: 0.64rem;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
   margin-bottom: 5px;
 }
 
@@ -359,7 +401,7 @@ textarea {
 .detail-path {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.72rem;
-  color: var(--muted);
+  color: var(--ink);
   overflow-wrap: anywhere;
 }
 
@@ -374,7 +416,8 @@ textarea {
   position: fixed;
   z-index: 40;
   width: min(260px, calc(100vw - 24px));
-  border-radius: 12px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   border: 1px solid rgba(17, 17, 17, 0.12);
   background: var(--paper-strong);
   backdrop-filter: blur(8px);
@@ -390,7 +433,7 @@ textarea {
 
 .tooltip-meta {
   margin-top: 2px;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 0.8rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
@@ -405,7 +448,8 @@ textarea {
 
 .project-card {
   width: min(760px, 100%);
-  border-radius: 20px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.7);
   box-shadow: var(--shadow);
@@ -421,7 +465,7 @@ textarea {
 
 .project-card p {
   margin: 0;
-  color: var(--muted);
+  color: var(--ink);
   line-height: 1.55;
   max-width: 62ch;
 }
@@ -436,7 +480,7 @@ textarea {
   }
 
   .bottom-panel {
-    width: min(620px, calc(100vw - 48px));
+    width: min(460px, calc(100vw - 48px));
   }
 }
 
@@ -472,7 +516,7 @@ textarea {
 
   .tab-button {
     font-size: 0.68rem;
-    padding: 7px 10px;
+    padding: 7px 8px 7px 0;
   }
 }
 

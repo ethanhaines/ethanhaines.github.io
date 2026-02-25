@@ -1,6 +1,6 @@
 # Portfolio Hypercube Frontend (NEST)
 
-React + Three.js portfolio frontend for your GrainBrain pollen embedding export package.
+React + Three.js portfolio frontend for your NEST (Nearest Extant Similarity Tool) pollen embedding export package.
 
 ## Stack
 

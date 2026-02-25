@@ -1,0 +1,175 @@
+{
+  "format": "nest_hypercube_export_v2",
+  "source_embeddings": "embeddings/grain_embeddings.npy",
+  "generated_files": {
+    "nodes": "nodes.json",
+    "edges": "edges.json",
+    "species": "species.json"
+  },
+  "counts": {
+    "nodes": 942,
+    "edges": 4484,
+    "species": 6
+  },
+  "tsne": {
+    "dimensions": 3,
+    "perplexity": 30,
+    "iterations": 1000,
+    "seed": 42,
+    "raw_bounds": {
+      "min": [
+        -22.242473602294922,
+        -15.078371047973633,
+        -13.460100173950195
+      ],
+      "max": [
+        15.330474853515625,
+        19.607624053955078,
+        11.306551933288574
+      ]
+    },
+    "normalized_space": "[-1, 1] per axis"
+  },
+  "display_coordinates": {
+    "default_field": "position_tsne",
+    "available_fields": [
+      "position",
+      "position_cloud",
+      "position_tsne",
+      "position_raw"
+    ],
+    "position": "cloud-friendly transformed coordinates with isotropic radius normalization (optional stylized display)",
+    "position_tsne": "direct min-max normalized t-SNE coordinates in [-1, 1] (default free-form display)",
+    "cloud_transform": {
+      "method": "robust_scale + pca + partial_whiten + tanh_clip + isotropic_radius_norm",
+      "whiten_strength": 0.6,
+      "tanh_gain": 1.2,
+      "z_boost": 1.4,
+      "robust_center_median": [
+        0.537936806678772,
+        -0.8213682174682617,
+        0.5991228818893433
+      ],
+      "robust_scale_iqr": [
+        13.438499450683594,
+        14.342351913452148,
+        7.524026870727539
+      ],
+      "pca_eigenvalues": [
+        0.5622791647911072,
+        0.4487681984901428,
+        0.3895357847213745
+      ],
+      "normalization": {
+        "center_mode": "mean",
+        "center": [
+          -0.004773459862917662,
+          -0.18814806640148163,
+          0.003513952484354377
+        ],
+        "radius_scale": 1.6200393438339233,
+        "radius_max_before": 1.6200393438339233,
+        "bounds_before": {
+          "min": [
+            -0.9801207184791565,
+            -0.9818582534790039,
+            -0.9968573451042175
+          ],
+          "max": [
+            0.9865491986274719,
+            0.9722648859024048,
+            0.9813281893730164
+          ]
+        },
+        "bounds_after": {
+          "min": [
+            -0.6020516157150269,
+            -0.489932656288147,
+            -0.6174981594085693
+          ],
+          "max": [
+            0.6119126677513123,
+            0.7162868976593018,
+            0.6035743951797485
+          ]
+        }
+      },
+      "normalized_bounds": {
+        "min": [
+          -0.6020516157150269,
+          -0.489932656288147,
+          -0.6174981594085693
+        ],
+        "max": [
+          0.6119126677513123,
+          0.7162868976593018,
+          0.6035743951797485
+        ]
+      }
+    },
+    "species_display_cloudify": {
+      "enabled": false,
+      "applied": false
+    },
+    "species_display_stretch": {
+      "enabled": false,
+      "applied": false
+    }
+  },
+  "graph": {
+    "edge_source": "embedding cosine kNN",
+    "k_neighbors": 6,
+    "similarity_metric": "cosine",
+    "species_ratio_bridges": {
+      "enabled": true,
+      "strategy": "species_size_ratio_all_to_all",
+      "species_count": 6,
+      "species_bridge_ratio": 1.2,
+      "source_budgets": {
+        "betula_populifolia": 17,
+        "carya_buckleyi": 18,
+        "corylus_heterophylla": 15,
+        "ochroma_limonensis": 18,
+        "psuedobombax_septenatum": 17,
+        "quararibea_pterocalyx": 17
+      },
+      "species_bridge_antipode_bias": 0.35,
+      "species_bridge_source_isolation_boost": 1.5,
+      "species_bridge_source_edge_bias": 0.8,
+      "inward_pool": 12,
+      "attempted_species_pairs": 30,
+      "added_edges": 102,
+      "bridge_source_diversification": {
+        "strategy": "reuse_penalty",
+        "source_reuse_penalty": 0.08,
+        "target_reuse_penalty": 0.03
+      }
+    },
+    "manual_bridges": {
+      "enabled": false,
+      "added_edges": 0
+    },
+    "spatial_antipode_bridges": {
+      "enabled": false,
+      "added_edges": 0
+    },
+    "bridge_edges": {
+      "enabled": true,
+      "strategy": "component_mst_cosine_bridges",
+      "bridges_per_link": 20,
+      "components_before": 1,
+      "components_after": 1,
+      "added_edges": 0,
+      "mst_component_links": 0
+    }
+  },
+  "notes": [
+    "manifest.display_coordinates.default_field is position_tsne for free-form web display",
+    "nodes.position is cloud-friendly transformed display coordinates (optional stylized alternative)",
+    "nodes.position_cloud is the same cloud-friendly transformed coordinate set",
+    "nodes.position_tsne preserves direct normalized t-SNE coordinates",
+    "nodes.position_raw preserves original t-SNE coordinates",
+    "edges.edge_kind may be 'knn', 'species_ratio_bridge', 'manual_bridge', 'spatial_antipode_bridge', or 'component_bridge'",
+    "nodes.path may need remapping/copying in a separate website repo"
+  ]
+}

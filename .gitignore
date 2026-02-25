@@ -18,9 +18,3 @@ dist/
 # OS / editor noise
 .DS_Store
 Thumbs.db
-
-# Keep exported JSON package tracked, but ignore any future large assets dropped here
-hypercube_test/*
-!hypercube_test/
-!hypercube_test/*.json
-hypercube/

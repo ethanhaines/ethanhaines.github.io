@@ -31,7 +31,7 @@ export default function HypercubeCanvas({
       <Canvas
         dpr={[1, 2]}
         camera={{ position: [0, 0.25, 4.4], fov: 50, near: 0.1, far: 100 }}
-        raycaster={{ params: { Points: { threshold: 0.12 } } }}
+        raycaster={{ params: { Points: { threshold: 0.035 } } }}
         gl={{ antialias: true, alpha: true }}
         onPointerMissed={(event) => {
           if (event.type === 'click') onSelectIndex(null)
@@ -97,40 +97,12 @@ function NetworkObject({
     return geometry
   }, [data.baseEdgePositions])
 
-  const selectedEdgesGeometry = useMemo(() => {
-    if (selectedIndex == null) return null
-
-    const relatedEdges = data.edgesByNodeIndex[selectedIndex] ?? []
-    if (!relatedEdges.length) return null
-
-    const positions = new Float32Array(relatedEdges.length * 6)
-    let cursor = 0
-    for (const edge of relatedEdges) {
-      const a = edge.sourceIndex * 3
-      const b = edge.targetIndex * 3
-
-      positions[cursor] = data.positions[a]
-      positions[cursor + 1] = data.positions[a + 1]
-      positions[cursor + 2] = data.positions[a + 2]
-      positions[cursor + 3] = data.positions[b]
-      positions[cursor + 4] = data.positions[b + 1]
-      positions[cursor + 5] = data.positions[b + 2]
-      cursor += 6
-    }
-
-    const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    geometry.computeBoundingSphere()
-    return geometry
-  }, [data.edgesByNodeIndex, data.positions, selectedIndex])
-
   useEffect(() => {
     return () => {
       pointsGeometry.dispose()
       baseEdgesGeometry.dispose()
-      selectedEdgesGeometry?.dispose()
     }
-  }, [pointsGeometry, baseEdgesGeometry, selectedEdgesGeometry])
+  }, [pointsGeometry, baseEdgesGeometry])
 
   useFrame((_, delta) => {
     if (!groupRef.current || !autoRotate) return
@@ -148,18 +120,17 @@ function NetworkObject({
         <lineBasicMaterial color="#111111" transparent opacity={0.03} depthWrite={false} />
       </lineSegments>
 
-      {selectedEdgesGeometry ? (
-        <lineSegments geometry={selectedEdgesGeometry}>
-          <lineBasicMaterial color="#111111" transparent opacity={0.3} depthWrite={false} />
-        </lineSegments>
-      ) : null}
-
       <points
         geometry={pointsGeometry}
         onPointerMove={(event) => {
           event.stopPropagation()
           if (event.index == null) return
-          onHoverChange({ index: event.index, x: event.clientX, y: event.clientY })
+          const sourceEvent = event.sourceEvent ?? event
+          onHoverChange({
+            index: event.index,
+            x: sourceEvent.clientX ?? 0,
+            y: sourceEvent.clientY ?? 0
+          })
         }}
         onPointerOut={(event) => {
           event.stopPropagation()
@@ -182,38 +153,38 @@ function NetworkObject({
       </points>
 
       {hoveredNode ? (
-        <NodeHalo
+        <NodeMarker
           node={hoveredNode}
           color={speciesColorByKey.get(hoveredNode.species) ?? '#111111'}
-          innerRadius={0.026}
-          outerRadius={0.043}
-          opacity={0.8}
+          scale={0.05}
+          opacity={0.65}
+          wireOpacity={0.6}
         />
       ) : null}
 
       {selectedNode ? (
-        <NodeHalo
+        <NodeMarker
           node={selectedNode}
           color={speciesColorByKey.get(selectedNode.species) ?? '#111111'}
-          innerRadius={0.032}
-          outerRadius={0.056}
-          opacity={1}
+          scale={0.06}
+          opacity={0.92}
+          wireOpacity={0.9}
         />
       ) : null}
     </group>
   )
 }
 
-function NodeHalo({ node, color, innerRadius, outerRadius, opacity }) {
+function NodeMarker({ node, color, scale, opacity, wireOpacity }) {
   const p = node.displayPosition ?? node.position
   return (
-    <group position={[p?.x ?? 0, p?.y ?? 0, p?.z ?? 0]}>
+    <group position={[p?.x ?? 0, p?.y ?? 0, p?.z ?? 0]} rotation={[0.6, 0.6, 0]}>
       <mesh>
-        <sphereGeometry args={[outerRadius, 18, 18]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.94} />
+        <octahedronGeometry args={[scale, 0]} />
+        <meshBasicMaterial color="#111111" wireframe transparent opacity={wireOpacity} />
       </mesh>
       <mesh>
-        <sphereGeometry args={[innerRadius, 18, 18]} />
+        <sphereGeometry args={[scale * 0.3, 10, 10]} />
         <meshBasicMaterial color={color} transparent opacity={opacity} />
       </mesh>
     </group>
