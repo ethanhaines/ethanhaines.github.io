@@ -42,22 +42,45 @@ function buildUrl(filePath, cacheBust) {
 
 async function fetchJson(filePath, { signal, cacheBust }) {
   const url = buildUrl(filePath, cacheBust)
-  const isDataUrl = url.startsWith('data:')
-  const response = await fetch(
-    url,
-    isDataUrl
-      ? { signal }
-      : {
-          signal,
-          cache: 'no-store'
-        }
-  )
+  if (url.startsWith('data:')) {
+    return parseJsonDataUrl(url)
+  }
+
+  const response = await fetch(url, {
+    signal,
+    cache: 'no-store'
+  })
 
   if (!response.ok) {
     throw new Error(`Failed to load ${filePath} (${response.status})`)
   }
 
   return response.json()
+}
+
+function parseJsonDataUrl(url) {
+  const value = String(url ?? '')
+  const commaIndex = value.indexOf(',')
+  if (commaIndex < 0) {
+    throw new Error('Invalid data URL for JSON asset')
+  }
+
+  const header = value.slice(0, commaIndex)
+  const payload = value.slice(commaIndex + 1)
+  const isBase64 = /;base64/i.test(header)
+
+  let decoded = ''
+  if (isBase64) {
+    if (typeof atob === 'function') {
+      decoded = atob(payload)
+    } else {
+      throw new Error('Base64 data URL decoding is not available in this environment')
+    }
+  } else {
+    decoded = decodeURIComponent(payload)
+  }
+
+  return JSON.parse(decoded)
 }
 
 function hexToRgb01(hex) {
