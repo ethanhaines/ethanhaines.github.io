@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 const GRAPH_SCALE = 1.45
+const CLICK_ROTATION_ASSIST_MS = 1000
 
 export default function HypercubeCanvas({
   data,
@@ -14,6 +15,7 @@ export default function HypercubeCanvas({
 }) {
   const [isInteracting, setIsInteracting] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const [rotationAssistTick, setRotationAssistTick] = useState(0)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -26,6 +28,10 @@ export default function HypercubeCanvas({
     }
   }, [])
 
+  function triggerRotationAssist() {
+    setRotationAssistTick((tick) => tick + 1)
+  }
+
   return (
     <div className="canvas-shell" aria-label="Interactive pollen embedding graph">
       <Canvas
@@ -33,6 +39,7 @@ export default function HypercubeCanvas({
         camera={{ position: [0, 0.25, 4.2], fov: 50, near: 0.1, far: 100 }}
         gl={{ antialias: true, alpha: true }}
         onPointerMissed={(event) => {
+          if (event.type === 'click') triggerRotationAssist()
           if (event.type === 'click') onSelectIndex(null)
           onHoverChange(null)
         }}
@@ -49,6 +56,8 @@ export default function HypercubeCanvas({
           onHoverChange={onHoverChange}
           onSelectIndex={onSelectIndex}
           autoRotate={!isInteracting && !reducedMotion}
+          rotationAssistTick={rotationAssistTick}
+          onRotationAssistTrigger={triggerRotationAssist}
         />
 
         <OrbitControls
@@ -73,10 +82,14 @@ function NetworkObject({
   selectedIndex,
   onHoverChange,
   onSelectIndex,
-  autoRotate
+  autoRotate,
+  rotationAssistTick,
+  onRotationAssistTrigger
 }) {
   const groupRef = useRef(null)
   const crystalMeshRef = useRef(null)
+  const rotationFactorRef = useRef(1)
+  const rotationAssistStartedAtRef = useRef(-Infinity)
 
   const speciesColorByKey = useMemo(() => {
     return new Map(data.speciesLegend.map((entry) => [entry.species, entry.color?.hex ?? '#111111']))
@@ -128,11 +141,25 @@ function NetworkObject({
     }
   }, [baseEdgesGeometry])
 
+  useEffect(() => {
+    if (rotationAssistTick <= 0) return
+    rotationAssistStartedAtRef.current = performance.now()
+  }, [rotationAssistTick])
+
   useFrame((_, delta) => {
-    if (!groupRef.current || !autoRotate) return
-    groupRef.current.rotation.y += delta * 0.12
-    groupRef.current.rotation.x = 0.36 + Math.sin(performance.now() * 0.00012) * 0.07
-    groupRef.current.rotation.z = 0.08 + Math.cos(performance.now() * 0.00009) * 0.035
+    if (!groupRef.current) return
+
+    const now = performance.now()
+    const assistFactor = getClickRotationAssistFactor(now, rotationAssistStartedAtRef.current)
+    const targetRotationFactor = autoRotate ? assistFactor : 0
+    const easing = 1 - Math.exp(-delta * 7)
+
+    rotationFactorRef.current += (targetRotationFactor - rotationFactorRef.current) * easing
+    const rotationFactor = rotationFactorRef.current
+
+    groupRef.current.rotation.y += delta * 0.12 * rotationFactor
+    groupRef.current.rotation.x = 0.36 + Math.sin(now * 0.00012) * 0.07 * rotationFactor
+    groupRef.current.rotation.z = 0.08 + Math.cos(now * 0.00009) * 0.035 * rotationFactor
   })
 
   const hoveredNode = hoveredIndex == null ? null : data.nodes[hoveredIndex]
@@ -164,6 +191,7 @@ function NetworkObject({
         onClick={(event) => {
           event.stopPropagation()
           if (event.instanceId == null) return
+          onRotationAssistTrigger()
           onSelectIndex(event.instanceId)
         }}
       >
@@ -230,4 +258,33 @@ function NodeMarker({ node, color, scale, opacity, wireOpacity }) {
 
 function fract(value) {
   return value - Math.floor(value)
+}
+
+function getClickRotationAssistFactor(now, startedAt) {
+  if (!Number.isFinite(startedAt) || startedAt < 0) return 1
+
+  const elapsed = now - startedAt
+  if (elapsed <= 0) return 1
+  if (elapsed >= CLICK_ROTATION_ASSIST_MS) return 1
+
+  const stopEaseMs = 180
+  const holdMs = 420
+  const resumeMs = CLICK_ROTATION_ASSIST_MS - stopEaseMs - holdMs
+
+  if (elapsed < stopEaseMs) {
+    const t = elapsed / stopEaseMs
+    return 1 - easeInOutCubic(t)
+  }
+
+  if (elapsed < stopEaseMs + holdMs) {
+    return 0
+  }
+
+  const t = Math.min(1, (elapsed - stopEaseMs - holdMs) / Math.max(1, resumeMs))
+  return easeInOutCubic(t)
+}
+
+function easeInOutCubic(t) {
+  if (t < 0.5) return 4 * t * t * t
+  return 1 - Math.pow(-2 * t + 2, 3) / 2
 }
