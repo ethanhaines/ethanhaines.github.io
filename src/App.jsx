@@ -109,7 +109,7 @@ export default function App() {
                 node={panelNode}
                 data={data}
                 selectedNode={selectedNode}
-                isHoveredOnly={!selectedNode && Boolean(hoveredNode)}
+                isBottomRight={Boolean(panelNode)}
               />
               <TopInfoPanel
                 data={data}
@@ -179,10 +179,10 @@ function SpeciesRail({ speciesLegend }) {
   )
 }
 
-function BottomDetailPanel({ node, data, selectedNode, isHoveredOnly = false }) {
+function BottomDetailPanel({ node, data, selectedNode, isBottomRight = false }) {
   if (!data || !node) return null
   const thumbnailUrl = selectedNode ? buildThumbnailUrl(selectedNode) : null
-  const panelClassName = `floating-panel bottom-panel${isHoveredOnly ? ' is-hovered-only' : ''}`
+  const panelClassName = `floating-panel bottom-panel${isBottomRight ? ' is-bottom-right' : ''}`
 
   return (
     <section className={panelClassName} aria-live="polite">

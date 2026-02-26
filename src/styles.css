@@ -417,7 +417,7 @@ textarea {
   padding: 12px;
 }
 
-.bottom-panel.is-hovered-only {
+.bottom-panel.is-bottom-right {
   position: fixed;
   left: auto;
   right: 24px;
@@ -640,7 +640,7 @@ textarea {
     padding: 12px;
   }
 
-  .bottom-panel.is-hovered-only {
+  .bottom-panel.is-bottom-right {
     position: relative;
     right: auto;
     bottom: auto;
