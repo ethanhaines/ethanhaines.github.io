@@ -417,6 +417,16 @@ textarea {
   padding: 12px;
 }
 
+.bottom-panel.is-hovered-only {
+  position: fixed;
+  left: auto;
+  right: 24px;
+  bottom: 24px;
+  width: min(460px, calc(100vw - 48px));
+  max-width: none;
+  z-index: 30;
+}
+
 .detail-title {
   margin: 8px 0 10px;
   font-size: 0.94rem;
@@ -628,6 +638,15 @@ textarea {
 
   .bottom-panel {
     padding: 12px;
+  }
+
+  .bottom-panel.is-hovered-only {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: none;
   }
 
   .detail-grid {

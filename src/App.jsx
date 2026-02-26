@@ -105,7 +105,12 @@ export default function App() {
 
             <div className="left-priority-stack">
               <ProjectAbstractPanel />
-              <BottomDetailPanel node={panelNode} data={data} selectedNode={selectedNode} />
+              <BottomDetailPanel
+                node={panelNode}
+                data={data}
+                selectedNode={selectedNode}
+                isHoveredOnly={!selectedNode && Boolean(hoveredNode)}
+              />
               <TopInfoPanel
                 data={data}
                 onReload={reload}
@@ -174,12 +179,13 @@ function SpeciesRail({ speciesLegend }) {
   )
 }
 
-function BottomDetailPanel({ node, data, selectedNode }) {
+function BottomDetailPanel({ node, data, selectedNode, isHoveredOnly = false }) {
   if (!data || !node) return null
   const thumbnailUrl = selectedNode ? buildThumbnailUrl(selectedNode) : null
+  const panelClassName = `floating-panel bottom-panel${isHoveredOnly ? ' is-hovered-only' : ''}`
 
   return (
-    <section className="floating-panel bottom-panel" aria-live="polite">
+    <section className={panelClassName} aria-live="polite">
       <div className="mono-label">
         {selectedNode ? 'Selected Grain' : 'Hovered Grain'}
       </div>
