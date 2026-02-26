@@ -103,19 +103,20 @@ export default function App() {
               )}
             </div>
 
-            <TopInfoPanel
-              data={data}
-              onReload={reload}
-            />
+            <div className="left-priority-stack">
+              <ProjectAbstractPanel />
+              <BottomDetailPanel node={panelNode} data={data} selectedNode={selectedNode} />
+              <TopInfoPanel
+                data={data}
+                onReload={reload}
+              />
+            </div>
 
             {data ? <SpeciesRail speciesLegend={data.speciesLegend} /> : null}
-            <ProjectAbstractPanel />
 
             {deferredHoverState && hoveredNode ? (
               <Tooltip hoverState={deferredHoverState} node={hoveredNode} />
             ) : null}
-
-            <BottomDetailPanel node={panelNode} data={data} selectedNode={selectedNode} />
           </>
         ) : (
           <ProjectPlaceholder activeTab={activeTab} />

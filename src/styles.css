@@ -210,6 +210,29 @@ textarea {
   padding: 12px;
 }
 
+.left-priority-stack {
+  position: absolute;
+  z-index: 10;
+  top: 140px;
+  left: 24px;
+  width: min(460px, calc(100vw - 48px));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.left-priority-stack .abstract-panel,
+.left-priority-stack .bottom-panel,
+.left-priority-stack .top-panel {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  max-width: none;
+}
+
 .panel-row {
   display: grid;
   grid-template-columns: auto auto 1fr;
@@ -558,6 +581,14 @@ textarea {
     flex-direction: column;
     gap: 12px;
     padding: 8px 16px 16px;
+  }
+
+  .left-priority-stack {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    gap: 12px;
   }
 
   .canvas-layer {
