@@ -30,7 +30,7 @@ export default function HypercubeCanvas({
     <div className="canvas-shell" aria-label="Interactive pollen embedding graph">
       <Canvas
         dpr={[1, 2]}
-        camera={{ position: [0, 0.25, 4.4], fov: 50, near: 0.1, far: 100 }}
+        camera={{ position: [0, 0.25, 4.2], fov: 50, near: 0.1, far: 100 }}
         gl={{ antialias: true, alpha: true }}
         onPointerMissed={(event) => {
           if (event.type === 'click') onSelectIndex(null)
