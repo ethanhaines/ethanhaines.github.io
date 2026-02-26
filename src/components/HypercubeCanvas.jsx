@@ -15,7 +15,7 @@ export default function HypercubeCanvas({
 }) {
   const [isInteracting, setIsInteracting] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
-  const [rotationAssistTick, setRotationAssistTick] = useState(0)
+  const rotationAssistStartedAtRef = useRef(-Infinity)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -29,7 +29,7 @@ export default function HypercubeCanvas({
   }, [])
 
   function triggerRotationAssist() {
-    setRotationAssistTick((tick) => tick + 1)
+    rotationAssistStartedAtRef.current = performance.now()
   }
 
   return (
@@ -56,7 +56,7 @@ export default function HypercubeCanvas({
           onHoverChange={onHoverChange}
           onSelectIndex={onSelectIndex}
           autoRotate={!isInteracting && !reducedMotion}
-          rotationAssistTick={rotationAssistTick}
+          rotationAssistStartedAtRef={rotationAssistStartedAtRef}
           onRotationAssistTrigger={triggerRotationAssist}
         />
 
@@ -83,13 +83,13 @@ function NetworkObject({
   onHoverChange,
   onSelectIndex,
   autoRotate,
-  rotationAssistTick,
+  rotationAssistStartedAtRef,
   onRotationAssistTrigger
 }) {
   const groupRef = useRef(null)
   const crystalMeshRef = useRef(null)
   const rotationFactorRef = useRef(1)
-  const rotationAssistStartedAtRef = useRef(-Infinity)
+  const wobbleTimeRef = useRef(0)
 
   const speciesColorByKey = useMemo(() => {
     return new Map(data.speciesLegend.map((entry) => [entry.species, entry.color?.hex ?? '#111111']))
@@ -141,11 +141,6 @@ function NetworkObject({
     }
   }, [baseEdgesGeometry])
 
-  useEffect(() => {
-    if (rotationAssistTick <= 0) return
-    rotationAssistStartedAtRef.current = performance.now()
-  }, [rotationAssistTick])
-
   useFrame((_, delta) => {
     if (!groupRef.current) return
 
@@ -157,9 +152,12 @@ function NetworkObject({
     rotationFactorRef.current += (targetRotationFactor - rotationFactorRef.current) * easing
     const rotationFactor = rotationFactorRef.current
 
+    wobbleTimeRef.current += delta * rotationFactor
+    const wobbleT = wobbleTimeRef.current
+
     groupRef.current.rotation.y += delta * 0.12 * rotationFactor
-    groupRef.current.rotation.x = 0.36 + Math.sin(now * 0.00012) * 0.07 * rotationFactor
-    groupRef.current.rotation.z = 0.08 + Math.cos(now * 0.00009) * 0.035 * rotationFactor
+    groupRef.current.rotation.x = 0.36 + Math.sin(wobbleT * 0.12) * 0.07
+    groupRef.current.rotation.z = 0.08 + Math.cos(wobbleT * 0.09) * 0.035
   })
 
   const hoveredNode = hoveredIndex == null ? null : data.nodes[hoveredIndex]
