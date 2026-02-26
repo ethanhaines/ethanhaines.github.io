@@ -7,6 +7,8 @@
   --ink: #111111;
   --muted: #111111;
   --line: rgba(17, 17, 17, 0.08);
+  --panel-line: #111111;
+  --panel-inner-line: rgba(17, 17, 17, 0.08);
   --shadow: 0 18px 45px rgba(10, 10, 10, 0.08);
 }
 
@@ -152,11 +154,10 @@ textarea {
 
 .scene-placeholder-inner {
   width: min(480px, 100%);
-  border: 1px solid var(--line);
+  border: 1px solid var(--panel-line);
   background: var(--paper);
   backdrop-filter: blur(8px);
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
   box-shadow: var(--shadow);
   padding: 18px;
 }
@@ -177,19 +178,36 @@ textarea {
 .floating-panel {
   position: absolute;
   z-index: 10;
-  border: 1px solid var(--line);
-  background: var(--paper);
+  border: 1px solid var(--panel-line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 247, 243, 0.84)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(17, 17, 17, 0.02) 0px,
+      rgba(17, 17, 17, 0.02) 1px,
+      transparent 1px,
+      transparent 16px
+    );
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  clip-path: none;
+}
+
+.floating-panel::before {
+  content: none;
+}
+
+.floating-panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .top-panel {
   top: 140px;
   left: 24px;
   width: min(320px, calc(100vw - 48px));
-  padding: 14px;
+  padding: 12px;
 }
 
 .panel-row {
@@ -261,11 +279,11 @@ textarea {
 }
 
 .ghost-button {
-  margin-top: 12px;
+  margin-top: 10px;
   width: 100%;
   border-radius: 0;
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.72);
   color: var(--ink);
   padding: 9px 12px;
   cursor: pointer;
@@ -297,17 +315,12 @@ textarea {
       transparent 1px,
       transparent 16px
     );
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  border: 1px solid rgba(17, 17, 17, 0.14);
+  clip-path: none;
+  border: 1px solid var(--panel-line);
 }
 
 .species-rail::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(17, 17, 17, 0.06);
-  pointer-events: none;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  content: none;
 }
 
 .rail-title {
@@ -349,9 +362,9 @@ textarea {
   gap: 10px;
   padding: 7px 10px;
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid rgba(17, 17, 17, 0.1);
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--panel-line);
+  clip-path: none;
 }
 
 .species-dot {
@@ -390,9 +403,9 @@ textarea {
 
 .detail-thumb {
   margin-top: 8px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.5);
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.58);
+  clip-path: none;
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
@@ -412,11 +425,11 @@ textarea {
 }
 
 .detail-item {
-  border: 1px solid var(--line);
+  border: 1px solid var(--panel-line);
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  clip-path: none;
   padding: 9px;
-  background: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.58);
 }
 
 .detail-key {
@@ -454,8 +467,8 @@ textarea {
   z-index: 40;
   width: min(260px, calc(100vw - 24px));
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  border: 1px solid rgba(17, 17, 17, 0.12);
+  clip-path: none;
+  border: 1px solid var(--panel-line);
   background: var(--paper-strong);
   backdrop-filter: blur(8px);
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
@@ -486,8 +499,8 @@ textarea {
 .project-card {
   width: min(760px, 100%);
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-  border: 1px solid var(--line);
+  clip-path: none;
+  border: 1px solid var(--panel-line);
   background: rgba(255, 255, 255, 0.7);
   box-shadow: var(--shadow);
   padding: 22px;
@@ -552,9 +565,9 @@ textarea {
     inset: auto;
     height: min(54dvh, 460px);
     min-height: 320px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--panel-line);
     background: rgba(255, 255, 255, 0.28);
-    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    clip-path: none;
   }
 
   .top-panel,
