@@ -1,8 +1,9 @@
-import { startTransition, useDeferredValue, useEffect, useMemo, useState } from 'react'
+import { startTransition, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import HypercubeCanvas from './components/HypercubeCanvas'
 import { useHypercubeData } from './hooks/useHypercubeData'
 
 const SHOW_UNFINISHED_TABS = false
+const HOVER_PANEL_CLEAR_DELAY_MS = 180
 
 const TABS = [
   { id: 'NEST', label: 'NEST', enabled: true },
@@ -13,11 +14,41 @@ const TABS = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('NEST')
   const [hoverState, setHoverState] = useState(null)
+  const [panelHoverState, setPanelHoverState] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(null)
+  const hoverClearTimeoutRef = useRef(null)
   const { status, data, error, reload } = useHypercubeData()
 
   const deferredHoverState = useDeferredValue(hoverState)
-  const hoveredIndex = deferredHoverState?.index ?? null
+  const hoveredIndex = hoverState?.index ?? null
+  const panelHoveredIndex = panelHoverState?.index ?? null
+
+  useEffect(() => {
+    return () => {
+      if (hoverClearTimeoutRef.current != null) {
+        clearTimeout(hoverClearTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  function handleHoverChange(nextHoverState) {
+    if (hoverClearTimeoutRef.current != null) {
+      clearTimeout(hoverClearTimeoutRef.current)
+      hoverClearTimeoutRef.current = null
+    }
+
+    setHoverState(nextHoverState)
+
+    if (nextHoverState) {
+      setPanelHoverState(nextHoverState)
+      return
+    }
+
+    hoverClearTimeoutRef.current = setTimeout(() => {
+      setPanelHoverState(null)
+      hoverClearTimeoutRef.current = null
+    }, HOVER_PANEL_CLEAR_DELAY_MS)
+  }
 
   useEffect(() => {
     if (!data) {
@@ -31,7 +62,8 @@ export default function App() {
   }, [data, selectedIndex])
 
   const selectedNode = data && selectedIndex != null ? data.nodes[selectedIndex] : null
-  const hoveredNode = data && hoveredIndex != null ? data.nodes[hoveredIndex] : null
+  const hoveredNode = data && panelHoveredIndex != null ? data.nodes[panelHoveredIndex] : null
+  const tooltipNode = data && deferredHoverState?.index != null ? data.nodes[deferredHoverState.index] : null
   const panelNode = selectedNode ?? hoveredNode
 
   const projectSubtitle = useMemo(() => {
@@ -77,7 +109,7 @@ export default function App() {
                   data={data}
                   hoveredIndex={hoveredIndex}
                   selectedIndex={selectedIndex}
-                  onHoverChange={setHoverState}
+                  onHoverChange={handleHoverChange}
                   onSelectIndex={setSelectedIndex}
                 />
               ) : (
@@ -119,8 +151,8 @@ export default function App() {
 
             {data ? <SpeciesRail speciesLegend={data.speciesLegend} /> : null}
 
-            {deferredHoverState && hoveredNode ? (
-              <Tooltip hoverState={deferredHoverState} node={hoveredNode} />
+            {deferredHoverState && tooltipNode ? (
+              <Tooltip hoverState={deferredHoverState} node={tooltipNode} />
             ) : null}
           </>
         ) : (
