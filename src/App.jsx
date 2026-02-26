@@ -1,12 +1,14 @@
 import { startTransition, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import HypercubeCanvas from './components/HypercubeCanvas'
 import { useHypercubeData } from './hooks/useHypercubeData'
+import resumePdfUrl from '../resume/Ethan_Haines_resume.pdf?url'
 
 const SHOW_UNFINISHED_TABS = false
 const HOVER_PANEL_CLEAR_DELAY_MS = 180
 
 const TABS = [
   { id: 'NEST', label: 'NEST', enabled: true },
+  { id: 'RESUME', label: 'Resume', enabled: true },
   { id: 'ALAN', label: 'ALAN', enabled: SHOW_UNFINISHED_TABS },
   { id: 'TRADING_BOT', label: 'Algorithmic Trading Bot', enabled: SHOW_UNFINISHED_TABS }
 ]
@@ -68,6 +70,7 @@ export default function App() {
 
   const projectSubtitle = useMemo(() => {
     if (activeTab === 'NEST') return 'Nearest Extant Similarity Tool'
+    if (activeTab === 'RESUME') return 'Resume / CV'
     if (activeTab === 'ALAN') return 'Portfolio Project / Placeholder'
     return 'Portfolio Project / Placeholder'
   }, [activeTab])
@@ -155,11 +158,46 @@ export default function App() {
               <Tooltip hoverState={deferredHoverState} node={tooltipNode} />
             ) : null}
           </>
+        ) : activeTab === 'RESUME' ? (
+          <ResumeView />
         ) : (
           <ProjectPlaceholder activeTab={activeTab} />
         )}
       </main>
     </div>
+  )
+}
+
+function ResumeView() {
+  const resumeViewerUrl = `${resumePdfUrl}#zoom=100&pagemode=none&navpanes=0`
+
+  return (
+    <section className="resume-shell" aria-label="Resume">
+      <div className="resume-card">
+        <div className="resume-header">
+          <div>
+            <div className="mono-label resume-block-label">Resume</div>
+          </div>
+
+          <div className="resume-actions">
+            <a className="ghost-button resume-action" href={resumePdfUrl} target="_blank" rel="noreferrer">
+              Open PDF
+            </a>
+            <a className="ghost-button resume-action" href={resumePdfUrl} download>
+              Download
+            </a>
+          </div>
+        </div>
+
+        <div className="resume-viewer">
+          <iframe
+            className="resume-frame"
+            src={resumeViewerUrl}
+            title="Ethan Haines resume PDF"
+          />
+        </div>
+      </div>
+    </section>
   )
 }
 
