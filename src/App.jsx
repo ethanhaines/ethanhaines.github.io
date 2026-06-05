@@ -18,6 +18,7 @@ export default function App() {
   const [hoverState, setHoverState] = useState(null)
   const [panelHoverState, setPanelHoverState] = useState(null)
   const [selectedIndex, setSelectedIndex] = useState(null)
+  const [queryPanelOpen, setQueryPanelOpen] = useState(false)
   const hoverClearTimeoutRef = useRef(null)
   const { status, data, error, reload } = useHypercubeData()
 
@@ -140,17 +141,23 @@ export default function App() {
 
             <div className="left-priority-stack">
               <ProjectAbstractPanel />
-              <BottomDetailPanel
-                node={panelNode}
-                data={data}
-                selectedNode={selectedNode}
-                isBottomRight={Boolean(panelNode)}
-              />
               <TopInfoPanel
                 data={data}
                 onReload={reload}
               />
             </div>
+
+            <QueryPanel
+              isOpen={queryPanelOpen}
+              onToggle={() => setQueryPanelOpen((value) => !value)}
+            />
+
+            <BottomDetailPanel
+              node={panelNode}
+              data={data}
+              selectedNode={selectedNode}
+              isBottomRight={Boolean(panelNode)}
+            />
 
             {data ? <SpeciesRail speciesLegend={data.speciesLegend} /> : null}
 
@@ -275,6 +282,55 @@ function BottomDetailPanel({ node, data, selectedNode, isBottomRight = false }) 
           <span className="detail-value">{node.id}</span>
         </div>
       </div>
+    </section>
+  )
+}
+
+function QueryPanel({ isOpen, onToggle }) {
+  const [selectedFileName, setSelectedFileName] = useState('')
+
+  return (
+    <section className={`floating-panel query-panel${isOpen ? ' is-open' : ''}`} aria-label="Query panel">
+      {!isOpen ? (
+        <button className="query-toggle" type="button" onClick={onToggle}>
+          Query
+        </button>
+      ) : (
+        <>
+          <div className="query-header">
+            <div className="mono-label">Query</div>
+            <button className="query-close" type="button" onClick={onToggle}>
+              Close
+            </button>
+          </div>
+
+          <div className="query-actions">
+            <button className="query-choice" type="button" disabled>
+              <span>Fossil Set</span>
+              <span>20 Pending</span>
+            </button>
+
+            <label className="query-upload" htmlFor="query-upload-input">
+              Upload File
+            </label>
+            <input
+              id="query-upload-input"
+              className="query-upload-input"
+              type="file"
+              accept="image/*,.tif,.tiff"
+              onChange={(event) => {
+                setSelectedFileName(event.target.files?.[0]?.name ?? '')
+              }}
+            />
+
+            {selectedFileName ? (
+              <div className="query-file-name" title={selectedFileName}>
+                {selectedFileName}
+              </div>
+            ) : null}
+          </div>
+        </>
+      )}
     </section>
   )
 }

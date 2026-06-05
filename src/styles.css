@@ -222,7 +222,6 @@ textarea {
 }
 
 .left-priority-stack .abstract-panel,
-.left-priority-stack .bottom-panel,
 .left-priority-stack .top-panel {
   position: relative;
   top: auto;
@@ -425,6 +424,111 @@ textarea {
   width: min(460px, calc(100vw - 48px));
   max-width: none;
   z-index: 30;
+}
+
+.query-panel {
+  left: 24px;
+  bottom: 24px;
+  width: min(240px, calc(100vw - 48px));
+  padding: 0;
+  overflow: hidden;
+}
+
+.query-panel.is-open {
+  width: min(360px, calc(100vw - 48px));
+  padding: 12px;
+}
+
+.query-toggle {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 13px 16px;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.query-toggle:hover,
+.query-close:hover,
+.query-upload:hover {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.query-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.query-close {
+  border: 1px solid var(--panel-line);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  padding: 6px 9px;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.query-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.query-choice,
+.query-upload,
+.query-file-name {
+  border: 1px solid var(--panel-line);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--ink);
+  padding: 9px 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.query-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.query-choice:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.query-upload {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.query-upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.query-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-transform: none;
 }
 
 .detail-title {
@@ -727,7 +831,8 @@ textarea {
   .top-panel,
   .species-rail,
   .abstract-panel,
-  .bottom-panel {
+  .bottom-panel,
+  .query-panel {
     position: relative;
     top: auto;
     right: auto;
@@ -750,6 +855,17 @@ textarea {
   }
 
   .bottom-panel {
+    padding: 12px;
+  }
+
+  .query-panel,
+  .query-panel.is-open {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .query-panel.is-open {
     padding: 12px;
   }
 
