@@ -15,6 +15,9 @@ node_modules/
 dist/
 .vite/
 
+# Local LaTeX resume source/build workspace
+resume_compilation/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
