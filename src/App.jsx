@@ -5,6 +5,7 @@ import resumePdfUrl from '../resume/Ethan_Haines_resume.pdf?url'
 
 const SHOW_UNFINISHED_TABS = false
 const HOVER_PANEL_CLEAR_DELAY_MS = 180
+const EMPTY_QUERIES = []
 
 const TABS = [
   { id: 'NEST', label: 'NEST', enabled: true },
@@ -148,8 +149,10 @@ export default function App() {
             </div>
 
             <QueryPanel
+              data={data}
               isOpen={queryPanelOpen}
               onToggle={() => setQueryPanelOpen((value) => !value)}
+              onSelectIndex={setSelectedIndex}
             />
 
             <BottomDetailPanel
@@ -289,8 +292,71 @@ function BottomDetailPanel({ node, data, selectedNode, isBottomRight = false }) 
   )
 }
 
-function QueryPanel({ isOpen, onToggle }) {
-  const [selectedFileName, setSelectedFileName] = useState('')
+function QueryPanel({ data, isOpen, onToggle, onSelectIndex }) {
+  const queries = data?.searchResults?.queries ?? EMPTY_QUERIES
+  const [selectedQueryNodeId, setSelectedQueryNodeId] = useState(null)
+  const [activeQueryNodeId, setActiveQueryNodeId] = useState(null)
+  const [selectedResultNodeId, setSelectedResultNodeId] = useState(null)
+
+  const selectedQuery = useMemo(() => {
+    return queries.find((query) => query.query.node_id === selectedQueryNodeId) ?? queries[0] ?? null
+  }, [queries, selectedQueryNodeId])
+
+  const activeQuery = useMemo(() => {
+    return queries.find((query) => query.query.node_id === activeQueryNodeId) ?? null
+  }, [queries, activeQueryNodeId])
+
+  const selectedResult = useMemo(() => {
+    if (!activeQuery) return null
+    return (
+      activeQuery.results.find((result) => result.node_id === selectedResultNodeId) ??
+      activeQuery.results[0] ??
+      null
+    )
+  }, [activeQuery, selectedResultNodeId])
+
+  useEffect(() => {
+    if (!queries.length) {
+      setSelectedQueryNodeId(null)
+      setActiveQueryNodeId(null)
+      setSelectedResultNodeId(null)
+      return
+    }
+
+    if (!queries.some((query) => query.query.node_id === selectedQueryNodeId)) {
+      setSelectedQueryNodeId(queries[0].query.node_id)
+    }
+
+    if (activeQueryNodeId != null && !queries.some((query) => query.query.node_id === activeQueryNodeId)) {
+      setActiveQueryNodeId(null)
+      setSelectedResultNodeId(null)
+    }
+  }, [activeQueryNodeId, queries, selectedQueryNodeId])
+
+  function selectGraphNode(nodeId) {
+    if (nodeId == null || !data?.indexById) return
+    const index = data.indexById.get(nodeId)
+    if (index != null) onSelectIndex(index)
+  }
+
+  function handleSelectQuery(query) {
+    const nodeId = query.query.node_id
+    setSelectedQueryNodeId(nodeId)
+    setSelectedResultNodeId(null)
+    selectGraphNode(nodeId)
+  }
+
+  function handleRunQuery() {
+    if (!selectedQuery) return
+    setActiveQueryNodeId(selectedQuery.query.node_id)
+    setSelectedResultNodeId(selectedQuery.results[0]?.node_id ?? null)
+    selectGraphNode(selectedQuery.query.node_id)
+  }
+
+  function handleSelectResult(result) {
+    setSelectedResultNodeId(result.node_id)
+    selectGraphNode(result.node_id)
+  }
 
   return (
     <section className={`floating-panel query-panel${isOpen ? ' is-open' : ''}`} aria-label="Query panel">
@@ -301,41 +367,138 @@ function QueryPanel({ isOpen, onToggle }) {
       ) : (
         <>
           <div className="query-header">
-            <div className="mono-label">Query</div>
+            <div>
+              <div className="mono-label">Query</div>
+              <div className="query-subtitle">
+                {queries.length ? `${queries.length} fossil pollen queries` : 'Static search unavailable'}
+              </div>
+            </div>
             <button className="query-close" type="button" onClick={onToggle}>
               Close
             </button>
           </div>
 
-          <div className="query-actions">
-            <button className="query-choice" type="button" disabled>
-              <span>Fossil Set</span>
-              <span>20 Pending</span>
-            </button>
-
-            <label className="query-upload" htmlFor="query-upload-input">
-              Upload File
-            </label>
-            <input
-              id="query-upload-input"
-              className="query-upload-input"
-              type="file"
-              accept="image/*,.tif,.tiff"
-              onChange={(event) => {
-                setSelectedFileName(event.target.files?.[0]?.name ?? '')
-              }}
-            />
-
-            {selectedFileName ? (
-              <div className="query-file-name" title={selectedFileName}>
-                {selectedFileName}
+          {queries.length ? (
+            <div className="query-workspace">
+              <div className="query-selector">
+                <div className="mono-label">Fossil Pollens</div>
+                <div className="query-list" role="listbox" aria-label="Fossil pollen queries">
+                  {queries.map((query) => {
+                    const isSelected = query.query.node_id === selectedQuery?.query.node_id
+                    const isActive = query.query.node_id === activeQuery?.query.node_id
+                    return (
+                      <button
+                        key={query.query.node_id}
+                        type="button"
+                        className={`query-list-item${isSelected ? ' is-selected' : ''}${isActive ? ' is-active' : ''}`}
+                        onClick={() => handleSelectQuery(query)}
+                      >
+                        <span>Node {query.query.node_id}</span>
+                        <span>{query.query.crop_size}</span>
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
-            ) : null}
-          </div>
+
+              {selectedQuery ? (
+                <div className="query-preview">
+                  <div className="mono-label">Selected Fossil</div>
+                  <ThumbnailPreview
+                    src={buildThumbnailUrl(selectedQuery.query)}
+                    alt={`${selectedQuery.query.filename} thumbnail`}
+                    className="query-thumb"
+                  />
+                  <div className="query-preview-title">{selectedQuery.query.filename}</div>
+                  <div className="query-preview-meta">
+                    Node {selectedQuery.query.node_id} | {selectedQuery.query.crop_size}
+                  </div>
+                  <button className="ghost-button query-run-button" type="button" onClick={handleRunQuery}>
+                    Query This Fossil
+                  </button>
+                </div>
+              ) : null}
+
+              {activeQuery ? (
+                <div className="query-results">
+                  <div className="query-comparison">
+                    <ComparisonCard label="Query Fossil" item={activeQuery.query} />
+                    <ComparisonCard label="Selected Match" item={selectedResult} />
+                  </div>
+
+                  <div className="query-results-header">
+                    <div className="mono-label">Similarity Leaderboard</div>
+                    <div className="query-preview-meta">
+                      Cosine similarity from stored DINOv3 embeddings
+                    </div>
+                  </div>
+
+                  <div className="leaderboard" role="list" aria-label="Search results">
+                    {activeQuery.results.map((result, index) => (
+                      <button
+                        key={`${activeQuery.query.node_id}-${result.node_id}`}
+                        type="button"
+                        className={`leaderboard-row${result.node_id === selectedResult?.node_id ? ' is-selected' : ''}`}
+                        onClick={() => handleSelectResult(result)}
+                      >
+                        <span className="leaderboard-rank">{index + 1}</span>
+                        <span className="leaderboard-main">
+                          <span className="leaderboard-species">{prettifySpecies(result.species)}</span>
+                          <span className="leaderboard-file">{result.filename}</span>
+                        </span>
+                        <span className="leaderboard-score">{formatSimilarity(result.similarity)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="query-empty-state">
+                  Pick a fossil pollen above, then run a static nearest-neighbor query.
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="query-empty-state">
+              Static fossil search results were not found in the current export.
+            </div>
+          )}
         </>
       )}
     </section>
   )
+}
+
+function ComparisonCard({ label, item }) {
+  return (
+    <div className="comparison-card">
+      <div className="mono-label">{label}</div>
+      {item ? (
+        <>
+          <ThumbnailPreview
+            src={buildThumbnailUrl(item)}
+            alt={`${item.filename} thumbnail`}
+            className="query-thumb"
+          />
+          <div className="comparison-title">{item.filename}</div>
+          <div className="comparison-meta">
+            {prettifySpecies(item.display_species ?? item.species)} | Node {item.node_id}
+          </div>
+          {'similarity' in item ? (
+            <div className="comparison-score">{formatSimilarity(item.similarity)}</div>
+          ) : null}
+        </>
+      ) : (
+        <div className="query-empty-state">
+          Select a leaderboard grain.
+        </div>
+      )}
+    </div>
+  )
+}
+
+function formatSimilarity(value) {
+  if (!Number.isFinite(value)) return 'n/a'
+  return value.toFixed(3)
 }
 
 function ProjectAbstractPanel() {
@@ -355,7 +518,7 @@ function ProjectAbstractPanel() {
   )
 }
 
-function ThumbnailPreview({ src, alt }) {
+function ThumbnailPreview({ src, alt, className = '' }) {
   const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
@@ -365,7 +528,7 @@ function ThumbnailPreview({ src, alt }) {
   if (!src || hasError) return null
 
   return (
-    <div className="detail-thumb">
+    <div className={`detail-thumb${className ? ` ${className}` : ''}`}>
       <img
         src={src}
         alt={alt}

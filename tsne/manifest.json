@@ -4,7 +4,8 @@
   "generated_files": {
     "nodes": "nodes.json",
     "edges": "edges.json",
-    "species": "species.json"
+    "species": "species.json",
+    "search_results": "search_results.json"
   },
   "counts": {
     "nodes": 2961,
@@ -150,6 +151,7 @@
     "nodes.position_tsne preserves direct normalized t-SNE coordinates",
     "nodes.position_raw preserves original t-SNE coordinates",
     "edges.edge_kind may be 'knn', 'species_ratio_bridge', 'manual_bridge', 'spatial_antipode_bridge', or 'component_bridge'",
-    "nodes.path may need remapping/copying in a separate website repo"
+    "nodes.path may need remapping/copying in a separate website repo",
+    "search_results.json contains static fossil-pollen nearest-neighbor leaderboards"
   ]
 }

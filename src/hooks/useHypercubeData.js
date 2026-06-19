@@ -3,13 +3,15 @@ import manifestLocalUrl from '../../tsne/manifest.json?url'
 import nodesLocalUrl from '../../tsne/nodes.json?url'
 import edgesLocalUrl from '../../tsne/edges.json?url'
 import speciesLocalUrl from '../../tsne/species.json?url'
+import searchResultsLocalUrl from '../../tsne/search_results.json?url'
 
 const DATA_PREFIX = (import.meta.env.VITE_DATA_PREFIX ?? '').replace(/\/+$/, '')
 const LOCAL_DATA_URLS = {
   'manifest.json': manifestLocalUrl,
   'nodes.json': nodesLocalUrl,
   'edges.json': edgesLocalUrl,
-  'species.json': speciesLocalUrl
+  'species.json': speciesLocalUrl,
+  'search_results.json': searchResultsLocalUrl
 }
 const FOSSIL_DISPLAY_SPECIES = 'fossil_pollen'
 const FOSSIL_DISPLAY_LABEL = 'Fossil pollen'
@@ -222,7 +224,7 @@ function stylizeDisplayPosition(position) {
   }
 }
 
-function processPackage({ manifest, nodes, edges, species }) {
+function processPackage({ manifest, nodes, edges, species, searchResults }) {
   const displayField = chooseDisplayField(manifest, nodes)
   const sortedNodes = [...nodes]
     .sort((a, b) => a.id - b.id)
@@ -325,6 +327,7 @@ function processPackage({ manifest, nodes, edges, species }) {
     edges: normalizedEdges,
     species,
     speciesLegend,
+    searchResults,
     displaySpeciesCount: speciesLegend.length,
     positions,
     colors,
@@ -361,7 +364,7 @@ export function useHypercubeData() {
         })
 
         const files = manifest.generated_files ?? {}
-        const [nodes, edges, species] = await Promise.all([
+        const [nodes, edges, species, searchResults] = await Promise.all([
           fetchJson(files.nodes ?? 'nodes.json', {
             signal: controller.signal,
             cacheBust
@@ -373,6 +376,10 @@ export function useHypercubeData() {
           fetchJson(files.species ?? 'species.json', {
             signal: controller.signal,
             cacheBust
+          }),
+          fetchJson(files.search_results ?? 'search_results.json', {
+            signal: controller.signal,
+            cacheBust
           })
         ])
 
@@ -380,7 +387,7 @@ export function useHypercubeData() {
 
         setState({
           status: 'ready',
-          data: processPackage({ manifest, nodes, edges, species }),
+          data: processPackage({ manifest, nodes, edges, species, searchResults }),
           error: null
         })
       } catch (error) {

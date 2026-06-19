@@ -1,0 +1,3277 @@
+{
+  "format": "nest_static_fossil_search_v1",
+  "search_method": "cosine_similarity_on_stored_dinov3_embeddings",
+  "target_set": "all_non_fossil_embeddings",
+  "k": 10,
+  "counts": {
+    "queries": 23,
+    "targets": 2938
+  },
+  "queries": [
+    {
+      "query": {
+        "node_id": 1472,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0000.jpg",
+        "crop_size": "128x128",
+        "source_folder": "fossil_grains/128x128",
+        "path": "cropped_grains/fossil_grains/128x128/fossil_grains_grain_0000.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1747,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0000.jpg",
+          "crop_size": "128x128",
+          "source_folder": "myrica_rubra/128x128",
+          "path": "cropped_grains/myrica_rubra/128x128/myrica_rubra_grain_0000.jpg",
+          "similarity": 0.8831254839897156
+        },
+        {
+          "node_id": 1923,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0175.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0175.jpg",
+          "similarity": 0.8631370067596436
+        },
+        {
+          "node_id": 2050,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0302.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0302.jpg",
+          "similarity": 0.8588184118270874
+        },
+        {
+          "node_id": 2122,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0051.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0051.jpg",
+          "similarity": 0.8548550009727478
+        },
+        {
+          "node_id": 2023,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0275.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0275.jpg",
+          "similarity": 0.8511273860931396
+        },
+        {
+          "node_id": 2020,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0272.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0272.jpg",
+          "similarity": 0.8488740921020508
+        },
+        {
+          "node_id": 2019,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0271.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0271.jpg",
+          "similarity": 0.8481103181838989
+        },
+        {
+          "node_id": 2008,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0260.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0260.jpg",
+          "similarity": 0.8474306464195251
+        },
+        {
+          "node_id": 1773,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0025.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0025.jpg",
+          "similarity": 0.8450510501861572
+        },
+        {
+          "node_id": 2060,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0312.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0312.jpg",
+          "similarity": 0.8448814749717712
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 10,
+          "best_similarity": 0.8831254839897156
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1473,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0001.jpg",
+        "crop_size": "128x128",
+        "source_folder": "fossil_grains/128x128",
+        "path": "cropped_grains/fossil_grains/128x128/fossil_grains_grain_0001.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1941,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0193.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0193.jpg",
+          "similarity": 0.7929650545120239
+        },
+        {
+          "node_id": 1747,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0000.jpg",
+          "crop_size": "128x128",
+          "source_folder": "myrica_rubra/128x128",
+          "path": "cropped_grains/myrica_rubra/128x128/myrica_rubra_grain_0000.jpg",
+          "similarity": 0.79133141040802
+        },
+        {
+          "node_id": 1877,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0129.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0129.jpg",
+          "similarity": 0.7897243499755859
+        },
+        {
+          "node_id": 2050,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0302.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0302.jpg",
+          "similarity": 0.7807698249816895
+        },
+        {
+          "node_id": 2042,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0294.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0294.jpg",
+          "similarity": 0.7805876731872559
+        },
+        {
+          "node_id": 2008,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0260.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0260.jpg",
+          "similarity": 0.7797219753265381
+        },
+        {
+          "node_id": 1999,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0251.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0251.jpg",
+          "similarity": 0.7785665392875671
+        },
+        {
+          "node_id": 1950,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0202.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0202.jpg",
+          "similarity": 0.7761553525924683
+        },
+        {
+          "node_id": 1951,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0203.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0203.jpg",
+          "similarity": 0.7740113735198975
+        },
+        {
+          "node_id": 1863,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0115.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0115.jpg",
+          "similarity": 0.7711325883865356
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 10,
+          "best_similarity": 0.7929650545120239
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1474,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0000.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0000.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1950,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0202.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0202.jpg",
+          "similarity": 0.8517048358917236
+        },
+        {
+          "node_id": 2008,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0260.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0260.jpg",
+          "similarity": 0.8461191654205322
+        },
+        {
+          "node_id": 2122,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0051.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0051.jpg",
+          "similarity": 0.8371239304542542
+        },
+        {
+          "node_id": 1846,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0098.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0098.jpg",
+          "similarity": 0.8356186151504517
+        },
+        {
+          "node_id": 1747,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0000.jpg",
+          "crop_size": "128x128",
+          "source_folder": "myrica_rubra/128x128",
+          "path": "cropped_grains/myrica_rubra/128x128/myrica_rubra_grain_0000.jpg",
+          "similarity": 0.8309102654457092
+        },
+        {
+          "node_id": 1892,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0144.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0144.jpg",
+          "similarity": 0.8267120122909546
+        },
+        {
+          "node_id": 175,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0077.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0077.jpg",
+          "similarity": 0.8266950845718384
+        },
+        {
+          "node_id": 1796,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0048.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0048.jpg",
+          "similarity": 0.8261315822601318
+        },
+        {
+          "node_id": 1985,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0237.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0237.jpg",
+          "similarity": 0.8259023427963257
+        },
+        {
+          "node_id": 1842,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0094.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0094.jpg",
+          "similarity": 0.8258094787597656
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 9,
+          "best_similarity": 0.8517048358917236
+        },
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 1,
+          "best_similarity": 0.8266950845718384
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1475,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0001.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0001.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1973,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0225.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0225.jpg",
+          "similarity": 0.8609272241592407
+        },
+        {
+          "node_id": 1958,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0210.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0210.jpg",
+          "similarity": 0.8209006786346436
+        },
+        {
+          "node_id": 1873,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0125.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0125.jpg",
+          "similarity": 0.8189865946769714
+        },
+        {
+          "node_id": 1863,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0115.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0115.jpg",
+          "similarity": 0.8092242479324341
+        },
+        {
+          "node_id": 1976,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0228.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0228.jpg",
+          "similarity": 0.8046903014183044
+        },
+        {
+          "node_id": 2097,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0026.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0026.jpg",
+          "similarity": 0.8000451922416687
+        },
+        {
+          "node_id": 1821,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0073.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0073.jpg",
+          "similarity": 0.79823899269104
+        },
+        {
+          "node_id": 2118,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0047.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0047.jpg",
+          "similarity": 0.7927562594413757
+        },
+        {
+          "node_id": 1877,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0129.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0129.jpg",
+          "similarity": 0.789900541305542
+        },
+        {
+          "node_id": 1817,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0069.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0069.jpg",
+          "similarity": 0.7836191654205322
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 10,
+          "best_similarity": 0.8609272241592407
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1476,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0002.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0002.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1957,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0209.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0209.jpg",
+          "similarity": 0.8878085613250732
+        },
+        {
+          "node_id": 1905,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0157.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0157.jpg",
+          "similarity": 0.8858182430267334
+        },
+        {
+          "node_id": 1817,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0069.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0069.jpg",
+          "similarity": 0.8832050561904907
+        },
+        {
+          "node_id": 1926,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0178.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0178.jpg",
+          "similarity": 0.8710377216339111
+        },
+        {
+          "node_id": 1973,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0225.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0225.jpg",
+          "similarity": 0.870926022529602
+        },
+        {
+          "node_id": 1863,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0115.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0115.jpg",
+          "similarity": 0.8672546744346619
+        },
+        {
+          "node_id": 2118,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0047.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0047.jpg",
+          "similarity": 0.8629714250564575
+        },
+        {
+          "node_id": 2042,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0294.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0294.jpg",
+          "similarity": 0.8599940538406372
+        },
+        {
+          "node_id": 1976,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0228.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0228.jpg",
+          "similarity": 0.8569452166557312
+        },
+        {
+          "node_id": 1999,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0251.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0251.jpg",
+          "similarity": 0.8514254093170166
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 10,
+          "best_similarity": 0.8878085613250732
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1477,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0003.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0003.jpg"
+      },
+      "results": [
+        {
+          "node_id": 2634,
+          "species": "psuedobombax_septenatum",
+          "display_species": "psuedobombax_septenatum",
+          "display_label": "Psuedobombax Septenatum",
+          "filename": "psuedobombax_septenatum_grain_0052.jpg",
+          "crop_size": "256x256",
+          "source_folder": "psuedobombax_septenatum/256x256",
+          "path": "cropped_grains/psuedobombax_septenatum/256x256/psuedobombax_septenatum_grain_0052.jpg",
+          "similarity": 0.7970776557922363
+        },
+        {
+          "node_id": 1973,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0225.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0225.jpg",
+          "similarity": 0.7945554256439209
+        },
+        {
+          "node_id": 850,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0085.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0085.jpg",
+          "similarity": 0.7912273406982422
+        },
+        {
+          "node_id": 797,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0032.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0032.jpg",
+          "similarity": 0.7891061305999756
+        },
+        {
+          "node_id": 845,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0080.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0080.jpg",
+          "similarity": 0.7890878915786743
+        },
+        {
+          "node_id": 287,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0045.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0045.jpg",
+          "similarity": 0.7882014513015747
+        },
+        {
+          "node_id": 858,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0093.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0093.jpg",
+          "similarity": 0.7806332111358643
+        },
+        {
+          "node_id": 844,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0079.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0079.jpg",
+          "similarity": 0.7790965437889099
+        },
+        {
+          "node_id": 846,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0081.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0081.jpg",
+          "similarity": 0.7777092456817627
+        },
+        {
+          "node_id": 1496,
+          "species": "juglans_nigra",
+          "display_species": "juglans_nigra",
+          "display_label": "Juglans Nigra",
+          "filename": "juglans_nigra_grain_0001.jpg",
+          "crop_size": "256x256",
+          "source_folder": "juglans_nigra/256x256",
+          "path": "cropped_grains/juglans_nigra/256x256/juglans_nigra_grain_0001.jpg",
+          "similarity": 0.7752993702888489
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "psuedobombax_septenatum",
+          "label": "Psuedobombax Septenatum",
+          "count": 1,
+          "best_similarity": 0.7970776557922363
+        },
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 1,
+          "best_similarity": 0.7945554256439209
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 6,
+          "best_similarity": 0.7912273406982422
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 1,
+          "best_similarity": 0.7882014513015747
+        },
+        {
+          "species": "juglans_nigra",
+          "label": "Juglans Nigra",
+          "count": 1,
+          "best_similarity": 0.7752993702888489
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1478,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0004.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0004.jpg"
+      },
+      "results": [
+        {
+          "node_id": 60,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0056.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0056.jpg",
+          "similarity": 0.7928175926208496
+        },
+        {
+          "node_id": 81,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0077.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0077.jpg",
+          "similarity": 0.7886505126953125
+        },
+        {
+          "node_id": 823,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0058.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0058.jpg",
+          "similarity": 0.7819994688034058
+        },
+        {
+          "node_id": 62,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0058.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0058.jpg",
+          "similarity": 0.7618350386619568
+        },
+        {
+          "node_id": 856,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0091.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0091.jpg",
+          "similarity": 0.7608263492584229
+        },
+        {
+          "node_id": 0,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0000.jpg",
+          "crop_size": "224x224",
+          "source_folder": "alfaroa_williamsii/224x224",
+          "path": "cropped_grains/alfaroa_williamsii/224x224/alfaroa_williamsii_grain_0000.jpg",
+          "similarity": 0.7600375413894653
+        },
+        {
+          "node_id": 67,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0063.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0063.jpg",
+          "similarity": 0.7567267417907715
+        },
+        {
+          "node_id": 1290,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0109.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0109.jpg",
+          "similarity": 0.7538068890571594
+        },
+        {
+          "node_id": 907,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0142.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0142.jpg",
+          "similarity": 0.7521771192550659
+        },
+        {
+          "node_id": 820,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0055.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0055.jpg",
+          "similarity": 0.7471718192100525
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 5,
+          "best_similarity": 0.7928175926208496
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 4,
+          "best_similarity": 0.7819994688034058
+        },
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 1,
+          "best_similarity": 0.7538068890571594
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1479,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0005.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0005.jpg"
+      },
+      "results": [
+        {
+          "node_id": 546,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0000.jpg",
+          "crop_size": "160x160",
+          "source_folder": "betula_lutea/160x160",
+          "path": "cropped_grains/betula_lutea/160x160/betula_lutea_grain_0000.jpg",
+          "similarity": 0.8771742582321167
+        },
+        {
+          "node_id": 1859,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0111.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0111.jpg",
+          "similarity": 0.8721359968185425
+        },
+        {
+          "node_id": 2038,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0290.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0290.jpg",
+          "similarity": 0.8681216239929199
+        },
+        {
+          "node_id": 2057,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0309.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0309.jpg",
+          "similarity": 0.8660823106765747
+        },
+        {
+          "node_id": 1878,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0130.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0130.jpg",
+          "similarity": 0.8635492920875549
+        },
+        {
+          "node_id": 2054,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0306.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0306.jpg",
+          "similarity": 0.8613017797470093
+        },
+        {
+          "node_id": 1747,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0000.jpg",
+          "crop_size": "128x128",
+          "source_folder": "myrica_rubra/128x128",
+          "path": "cropped_grains/myrica_rubra/128x128/myrica_rubra_grain_0000.jpg",
+          "similarity": 0.8569307327270508
+        },
+        {
+          "node_id": 1892,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0144.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0144.jpg",
+          "similarity": 0.8552722334861755
+        },
+        {
+          "node_id": 1914,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0166.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0166.jpg",
+          "similarity": 0.8544100522994995
+        },
+        {
+          "node_id": 2049,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0301.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0301.jpg",
+          "similarity": 0.8506019115447998
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 1,
+          "best_similarity": 0.8771742582321167
+        },
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 9,
+          "best_similarity": 0.8721359968185425
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1480,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0006.jpg",
+        "crop_size": "160x160",
+        "source_folder": "fossil_grains/160x160",
+        "path": "cropped_grains/fossil_grains/160x160/fossil_grains_grain_0006.jpg"
+      },
+      "results": [
+        {
+          "node_id": 2042,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0294.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0294.jpg",
+          "similarity": 0.8591339588165283
+        },
+        {
+          "node_id": 1905,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0157.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0157.jpg",
+          "similarity": 0.8565951585769653
+        },
+        {
+          "node_id": 1863,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0115.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0115.jpg",
+          "similarity": 0.8564786314964294
+        },
+        {
+          "node_id": 1817,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0069.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0069.jpg",
+          "similarity": 0.8445643186569214
+        },
+        {
+          "node_id": 1848,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0100.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0100.jpg",
+          "similarity": 0.8436208963394165
+        },
+        {
+          "node_id": 41,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0037.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0037.jpg",
+          "similarity": 0.8408301472663879
+        },
+        {
+          "node_id": 1999,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0251.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0251.jpg",
+          "similarity": 0.8379678726196289
+        },
+        {
+          "node_id": 1926,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0178.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0178.jpg",
+          "similarity": 0.8368274569511414
+        },
+        {
+          "node_id": 1957,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0209.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0209.jpg",
+          "similarity": 0.8348643779754639
+        },
+        {
+          "node_id": 1810,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0062.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0062.jpg",
+          "similarity": 0.8300119638442993
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 9,
+          "best_similarity": 0.8591339588165283
+        },
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 1,
+          "best_similarity": 0.8408301472663879
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1481,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0000.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0000.jpg"
+      },
+      "results": [
+        {
+          "node_id": 899,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0134.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0134.jpg",
+          "similarity": 0.8398054838180542
+        },
+        {
+          "node_id": 1211,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0030.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0030.jpg",
+          "similarity": 0.8218399882316589
+        },
+        {
+          "node_id": 35,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0031.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0031.jpg",
+          "similarity": 0.8209388852119446
+        },
+        {
+          "node_id": 716,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0065.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0065.jpg",
+          "similarity": 0.8172712922096252
+        },
+        {
+          "node_id": 243,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0001.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0001.jpg",
+          "similarity": 0.8145349025726318
+        },
+        {
+          "node_id": 598,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0047.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0047.jpg",
+          "similarity": 0.8109714984893799
+        },
+        {
+          "node_id": 840,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0075.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0075.jpg",
+          "similarity": 0.8088347911834717
+        },
+        {
+          "node_id": 721,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0070.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0070.jpg",
+          "similarity": 0.8078820705413818
+        },
+        {
+          "node_id": 42,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0038.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0038.jpg",
+          "similarity": 0.8054702281951904
+        },
+        {
+          "node_id": 633,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0082.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0082.jpg",
+          "similarity": 0.8045091032981873
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 2,
+          "best_similarity": 0.8398054838180542
+        },
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 1,
+          "best_similarity": 0.8218399882316589
+        },
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 2,
+          "best_similarity": 0.8209388852119446
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 4,
+          "best_similarity": 0.8172712922096252
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 1,
+          "best_similarity": 0.8145349025726318
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1482,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0001.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0001.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1197,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0016.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0016.jpg",
+          "similarity": 0.8656556010246277
+        },
+        {
+          "node_id": 631,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0080.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0080.jpg",
+          "similarity": 0.8654284477233887
+        },
+        {
+          "node_id": 679,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0028.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0028.jpg",
+          "similarity": 0.8586660623550415
+        },
+        {
+          "node_id": 644,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0093.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0093.jpg",
+          "similarity": 0.8579784035682678
+        },
+        {
+          "node_id": 716,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0065.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0065.jpg",
+          "similarity": 0.8523687720298767
+        },
+        {
+          "node_id": 2942,
+          "species": "quercus_alba",
+          "display_species": "quercus_alba",
+          "display_label": "Quercus Alba",
+          "filename": "quercus_alba_grain_0052.jpg",
+          "crop_size": "224x224",
+          "source_folder": "quercus_alba/224x224",
+          "path": "cropped_grains/quercus_alba/224x224/quercus_alba_grain_0052.jpg",
+          "similarity": 0.8509420156478882
+        },
+        {
+          "node_id": 850,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0085.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0085.jpg",
+          "similarity": 0.8498036861419678
+        },
+        {
+          "node_id": 243,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0001.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0001.jpg",
+          "similarity": 0.8493385314941406
+        },
+        {
+          "node_id": 825,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0060.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0060.jpg",
+          "similarity": 0.8468304872512817
+        },
+        {
+          "node_id": 2885,
+          "species": "quercus_alba",
+          "display_species": "quercus_alba",
+          "display_label": "Quercus Alba",
+          "filename": "quercus_alba_grain_0005.jpg",
+          "crop_size": "192x192",
+          "source_folder": "quercus_alba/192x192",
+          "path": "cropped_grains/quercus_alba/192x192/quercus_alba_grain_0005.jpg",
+          "similarity": 0.842008113861084
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 1,
+          "best_similarity": 0.8656556010246277
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 4,
+          "best_similarity": 0.8654284477233887
+        },
+        {
+          "species": "quercus_alba",
+          "label": "Quercus Alba",
+          "count": 2,
+          "best_similarity": 0.8509420156478882
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 2,
+          "best_similarity": 0.8498036861419678
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 1,
+          "best_similarity": 0.8493385314941406
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1483,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0002.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0002.jpg"
+      },
+      "results": [
+        {
+          "node_id": 833,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0068.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0068.jpg",
+          "similarity": 0.8472752571105957
+        },
+        {
+          "node_id": 857,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0092.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0092.jpg",
+          "similarity": 0.8438603281974792
+        },
+        {
+          "node_id": 28,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0024.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0024.jpg",
+          "similarity": 0.8438318371772766
+        },
+        {
+          "node_id": 608,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0057.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0057.jpg",
+          "similarity": 0.8366171717643738
+        },
+        {
+          "node_id": 646,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0095.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0095.jpg",
+          "similarity": 0.8329579830169678
+        },
+        {
+          "node_id": 582,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0031.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0031.jpg",
+          "similarity": 0.8313962817192078
+        },
+        {
+          "node_id": 1286,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0105.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0105.jpg",
+          "similarity": 0.830136239528656
+        },
+        {
+          "node_id": 719,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0068.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0068.jpg",
+          "similarity": 0.8301136493682861
+        },
+        {
+          "node_id": 553,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0002.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0002.jpg",
+          "similarity": 0.8292697668075562
+        },
+        {
+          "node_id": 1443,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0262.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0262.jpg",
+          "similarity": 0.8283870220184326
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 2,
+          "best_similarity": 0.8472752571105957
+        },
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 1,
+          "best_similarity": 0.8438318371772766
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 5,
+          "best_similarity": 0.8366171717643738
+        },
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 2,
+          "best_similarity": 0.830136239528656
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1484,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0003.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0003.jpg"
+      },
+      "results": [
+        {
+          "node_id": 661,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0010.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0010.jpg",
+          "similarity": 0.8472157716751099
+        },
+        {
+          "node_id": 736,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0000.jpg",
+          "crop_size": "288x288",
+          "source_folder": "betula_lutea/288x288",
+          "path": "cropped_grains/betula_lutea/288x288/betula_lutea_grain_0000.jpg",
+          "similarity": 0.8404316902160645
+        },
+        {
+          "node_id": 628,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0077.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0077.jpg",
+          "similarity": 0.8389366865158081
+        },
+        {
+          "node_id": 685,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0034.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0034.jpg",
+          "similarity": 0.8365535140037537
+        },
+        {
+          "node_id": 621,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0070.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0070.jpg",
+          "similarity": 0.8320127725601196
+        },
+        {
+          "node_id": 571,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0020.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0020.jpg",
+          "similarity": 0.8302891254425049
+        },
+        {
+          "node_id": 746,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0010.jpg",
+          "crop_size": "288x288",
+          "source_folder": "betula_lutea/288x288",
+          "path": "cropped_grains/betula_lutea/288x288/betula_lutea_grain_0010.jpg",
+          "similarity": 0.830199658870697
+        },
+        {
+          "node_id": 659,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0008.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0008.jpg",
+          "similarity": 0.8301784992218018
+        },
+        {
+          "node_id": 585,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0034.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0034.jpg",
+          "similarity": 0.8274664878845215
+        },
+        {
+          "node_id": 686,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0035.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0035.jpg",
+          "similarity": 0.8271089792251587
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 10,
+          "best_similarity": 0.8472157716751099
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1485,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0004.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0004.jpg"
+      },
+      "results": [
+        {
+          "node_id": 797,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0032.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0032.jpg",
+          "similarity": 0.8461849093437195
+        },
+        {
+          "node_id": 608,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0057.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0057.jpg",
+          "similarity": 0.8400572538375854
+        },
+        {
+          "node_id": 2896,
+          "species": "quercus_alba",
+          "display_species": "quercus_alba",
+          "display_label": "Quercus Alba",
+          "filename": "quercus_alba_grain_0006.jpg",
+          "crop_size": "224x224",
+          "source_folder": "quercus_alba/224x224",
+          "path": "cropped_grains/quercus_alba/224x224/quercus_alba_grain_0006.jpg",
+          "similarity": 0.8360382914543152
+        },
+        {
+          "node_id": 560,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0009.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0009.jpg",
+          "similarity": 0.8357436656951904
+        },
+        {
+          "node_id": 719,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0068.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_lutea/256x256",
+          "path": "cropped_grains/betula_lutea/256x256/betula_lutea_grain_0068.jpg",
+          "similarity": 0.8280985951423645
+        },
+        {
+          "node_id": 795,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0030.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0030.jpg",
+          "similarity": 0.8280645608901978
+        },
+        {
+          "node_id": 833,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0068.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0068.jpg",
+          "similarity": 0.8265169262886047
+        },
+        {
+          "node_id": 623,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0072.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0072.jpg",
+          "similarity": 0.8247712850570679
+        },
+        {
+          "node_id": 386,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0144.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0144.jpg",
+          "similarity": 0.8219209909439087
+        },
+        {
+          "node_id": 792,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0027.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0027.jpg",
+          "similarity": 0.819931149482727
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 4,
+          "best_similarity": 0.8461849093437195
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 4,
+          "best_similarity": 0.8400572538375854
+        },
+        {
+          "species": "quercus_alba",
+          "label": "Quercus Alba",
+          "count": 1,
+          "best_similarity": 0.8360382914543152
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 1,
+          "best_similarity": 0.8219209909439087
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1486,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0005.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0005.jpg"
+      },
+      "results": [
+        {
+          "node_id": 795,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0030.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0030.jpg",
+          "similarity": 0.8577759265899658
+        },
+        {
+          "node_id": 560,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0009.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0009.jpg",
+          "similarity": 0.853111982345581
+        },
+        {
+          "node_id": 386,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0144.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0144.jpg",
+          "similarity": 0.8521063327789307
+        },
+        {
+          "node_id": 792,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0027.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0027.jpg",
+          "similarity": 0.8460941314697266
+        },
+        {
+          "node_id": 1034,
+          "species": "centaurea_cyanus",
+          "display_species": "centaurea_cyanus",
+          "display_label": "Centaurea Cyanus",
+          "filename": "centaurea_cyanus_grain_0033.jpg",
+          "crop_size": "256x256",
+          "source_folder": "centaurea_cyanus/256x256",
+          "path": "cropped_grains/centaurea_cyanus/256x256/centaurea_cyanus_grain_0033.jpg",
+          "similarity": 0.8442935943603516
+        },
+        {
+          "node_id": 817,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0052.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0052.jpg",
+          "similarity": 0.8442032337188721
+        },
+        {
+          "node_id": 797,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0032.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0032.jpg",
+          "similarity": 0.8436328172683716
+        },
+        {
+          "node_id": 824,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0059.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0059.jpg",
+          "similarity": 0.8390406370162964
+        },
+        {
+          "node_id": 376,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0134.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0134.jpg",
+          "similarity": 0.8381549119949341
+        },
+        {
+          "node_id": 536,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0000.jpg",
+          "crop_size": "224x224",
+          "source_folder": "ambrosia_artemisifolia/224x224",
+          "path": "cropped_grains/ambrosia_artemisifolia/224x224/ambrosia_artemisifolia_grain_0000.jpg",
+          "similarity": 0.836414098739624
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 5,
+          "best_similarity": 0.8577759265899658
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 1,
+          "best_similarity": 0.853111982345581
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 3,
+          "best_similarity": 0.8521063327789307
+        },
+        {
+          "species": "centaurea_cyanus",
+          "label": "Centaurea Cyanus",
+          "count": 1,
+          "best_similarity": 0.8442935943603516
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1487,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0006.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0006.jpg"
+      },
+      "results": [
+        {
+          "node_id": 608,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0057.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0057.jpg",
+          "similarity": 0.8505291938781738
+        },
+        {
+          "node_id": 824,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0059.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0059.jpg",
+          "similarity": 0.8490242958068848
+        },
+        {
+          "node_id": 386,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0144.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0144.jpg",
+          "similarity": 0.8438403606414795
+        },
+        {
+          "node_id": 1926,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0178.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0178.jpg",
+          "similarity": 0.840568482875824
+        },
+        {
+          "node_id": 792,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0027.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0027.jpg",
+          "similarity": 0.8359076380729675
+        },
+        {
+          "node_id": 560,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0009.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0009.jpg",
+          "similarity": 0.8349875211715698
+        },
+        {
+          "node_id": 376,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0134.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0134.jpg",
+          "similarity": 0.8332593441009521
+        },
+        {
+          "node_id": 797,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0032.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0032.jpg",
+          "similarity": 0.8330210447311401
+        },
+        {
+          "node_id": 637,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0086.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0086.jpg",
+          "similarity": 0.8316982388496399
+        },
+        {
+          "node_id": 505,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0263.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0263.jpg",
+          "similarity": 0.8292464017868042
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 3,
+          "best_similarity": 0.8505291938781738
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 3,
+          "best_similarity": 0.8490242958068848
+        },
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 3,
+          "best_similarity": 0.8438403606414795
+        },
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 1,
+          "best_similarity": 0.840568482875824
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1488,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0007.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0007.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1391,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0210.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0210.jpg",
+          "similarity": 0.8300991058349609
+        },
+        {
+          "node_id": 546,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0000.jpg",
+          "crop_size": "160x160",
+          "source_folder": "betula_lutea/160x160",
+          "path": "cropped_grains/betula_lutea/160x160/betula_lutea_grain_0000.jpg",
+          "similarity": 0.8278402090072632
+        },
+        {
+          "node_id": 1197,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0016.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0016.jpg",
+          "similarity": 0.8223536014556885
+        },
+        {
+          "node_id": 850,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0085.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0085.jpg",
+          "similarity": 0.8196792602539062
+        },
+        {
+          "node_id": 1411,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0230.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0230.jpg",
+          "similarity": 0.8187626004219055
+        },
+        {
+          "node_id": 858,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0093.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0093.jpg",
+          "similarity": 0.8154805898666382
+        },
+        {
+          "node_id": 1926,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0178.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0178.jpg",
+          "similarity": 0.8139388561248779
+        },
+        {
+          "node_id": 631,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0080.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0080.jpg",
+          "similarity": 0.8125370740890503
+        },
+        {
+          "node_id": 853,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0088.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0088.jpg",
+          "similarity": 0.811853289604187
+        },
+        {
+          "node_id": 2103,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0032.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0032.jpg",
+          "similarity": 0.810932993888855
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 3,
+          "best_similarity": 0.8300991058349609
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 2,
+          "best_similarity": 0.8278402090072632
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 3,
+          "best_similarity": 0.8196792602539062
+        },
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 2,
+          "best_similarity": 0.8139388561248779
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1489,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0008.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0008.jpg"
+      },
+      "results": [
+        {
+          "node_id": 1973,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0225.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0225.jpg",
+          "similarity": 0.8162821531295776
+        },
+        {
+          "node_id": 2089,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0018.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0018.jpg",
+          "similarity": 0.8066736459732056
+        },
+        {
+          "node_id": 927,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0162.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0162.jpg",
+          "similarity": 0.8025786280632019
+        },
+        {
+          "node_id": 1873,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0125.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0125.jpg",
+          "similarity": 0.8007476925849915
+        },
+        {
+          "node_id": 8,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0004.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0004.jpg",
+          "similarity": 0.7926357984542847
+        },
+        {
+          "node_id": 628,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0077.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0077.jpg",
+          "similarity": 0.7878280878067017
+        },
+        {
+          "node_id": 548,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0001.jpg",
+          "crop_size": "192x192",
+          "source_folder": "betula_lutea/192x192",
+          "path": "cropped_grains/betula_lutea/192x192/betula_lutea_grain_0001.jpg",
+          "similarity": 0.7869986295700073
+        },
+        {
+          "node_id": 2118,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0047.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0047.jpg",
+          "similarity": 0.7835840582847595
+        },
+        {
+          "node_id": 89,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0085.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0085.jpg",
+          "similarity": 0.7825484275817871
+        },
+        {
+          "node_id": 819,
+          "species": "betula_populifolia",
+          "display_species": "betula_populifolia",
+          "display_label": "Betula Populifolia",
+          "filename": "betula_populifolia_grain_0054.jpg",
+          "crop_size": "256x256",
+          "source_folder": "betula_populifolia/256x256",
+          "path": "cropped_grains/betula_populifolia/256x256/betula_populifolia_grain_0054.jpg",
+          "similarity": 0.7814799547195435
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 4,
+          "best_similarity": 0.8162821531295776
+        },
+        {
+          "species": "betula_populifolia",
+          "label": "Betula Populifolia",
+          "count": 2,
+          "best_similarity": 0.8025786280632019
+        },
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 2,
+          "best_similarity": 0.7926357984542847
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 2,
+          "best_similarity": 0.7878280878067017
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1490,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0009.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0009.jpg"
+      },
+      "results": [
+        {
+          "node_id": 61,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0057.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0057.jpg",
+          "similarity": 0.862918496131897
+        },
+        {
+          "node_id": 52,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0048.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0048.jpg",
+          "similarity": 0.857224702835083
+        },
+        {
+          "node_id": 73,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0069.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0069.jpg",
+          "similarity": 0.8554695844650269
+        },
+        {
+          "node_id": 2073,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0002.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0002.jpg",
+          "similarity": 0.8546590805053711
+        },
+        {
+          "node_id": 547,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0000.jpg",
+          "crop_size": "192x192",
+          "source_folder": "betula_lutea/192x192",
+          "path": "cropped_grains/betula_lutea/192x192/betula_lutea_grain_0000.jpg",
+          "similarity": 0.8522910475730896
+        },
+        {
+          "node_id": 2108,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0037.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0037.jpg",
+          "similarity": 0.8520642518997192
+        },
+        {
+          "node_id": 2091,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0020.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0020.jpg",
+          "similarity": 0.8428537845611572
+        },
+        {
+          "node_id": 1918,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0170.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0170.jpg",
+          "similarity": 0.8422577381134033
+        },
+        {
+          "node_id": 564,
+          "species": "betula_lutea",
+          "display_species": "betula_lutea",
+          "display_label": "Betula Lutea",
+          "filename": "betula_lutea_grain_0013.jpg",
+          "crop_size": "224x224",
+          "source_folder": "betula_lutea/224x224",
+          "path": "cropped_grains/betula_lutea/224x224/betula_lutea_grain_0013.jpg",
+          "similarity": 0.8419549465179443
+        },
+        {
+          "node_id": 1894,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0146.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0146.jpg",
+          "similarity": 0.8417080640792847
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 3,
+          "best_similarity": 0.862918496131897
+        },
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 5,
+          "best_similarity": 0.8546590805053711
+        },
+        {
+          "species": "betula_lutea",
+          "label": "Betula Lutea",
+          "count": 2,
+          "best_similarity": 0.8522910475730896
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1491,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0010.jpg",
+        "crop_size": "192x192",
+        "source_folder": "fossil_grains/192x192",
+        "path": "cropped_grains/fossil_grains/192x192/fossil_grains_grain_0010.jpg"
+      },
+      "results": [
+        {
+          "node_id": 2007,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0259.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0259.jpg",
+          "similarity": 0.8423980474472046
+        },
+        {
+          "node_id": 2059,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0311.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0311.jpg",
+          "similarity": 0.8373844623565674
+        },
+        {
+          "node_id": 2052,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0304.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0304.jpg",
+          "similarity": 0.8329418897628784
+        },
+        {
+          "node_id": 1970,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0222.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0222.jpg",
+          "similarity": 0.832362174987793
+        },
+        {
+          "node_id": 1971,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0223.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0223.jpg",
+          "similarity": 0.8315271735191345
+        },
+        {
+          "node_id": 2125,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0054.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0054.jpg",
+          "similarity": 0.8299662470817566
+        },
+        {
+          "node_id": 1781,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0033.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0033.jpg",
+          "similarity": 0.827964186668396
+        },
+        {
+          "node_id": 2103,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0032.jpg",
+          "crop_size": "192x192",
+          "source_folder": "myrica_rubra/192x192",
+          "path": "cropped_grains/myrica_rubra/192x192/myrica_rubra_grain_0032.jpg",
+          "similarity": 0.8277167081832886
+        },
+        {
+          "node_id": 1981,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0233.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0233.jpg",
+          "similarity": 0.8273952007293701
+        },
+        {
+          "node_id": 1925,
+          "species": "myrica_rubra",
+          "display_species": "myrica_rubra",
+          "display_label": "Myrica Rubra",
+          "filename": "myrica_rubra_grain_0177.jpg",
+          "crop_size": "160x160",
+          "source_folder": "myrica_rubra/160x160",
+          "path": "cropped_grains/myrica_rubra/160x160/myrica_rubra_grain_0177.jpg",
+          "similarity": 0.8257859349250793
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "myrica_rubra",
+          "label": "Myrica Rubra",
+          "count": 10,
+          "best_similarity": 0.8423980474472046
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1492,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0000.jpg",
+        "crop_size": "224x224",
+        "source_folder": "fossil_grains/224x224",
+        "path": "cropped_grains/fossil_grains/224x224/fossil_grains_grain_0000.jpg"
+      },
+      "results": [
+        {
+          "node_id": 172,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0074.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0074.jpg",
+          "similarity": 0.8689461350440979
+        },
+        {
+          "node_id": 61,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0057.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0057.jpg",
+          "similarity": 0.8568600416183472
+        },
+        {
+          "node_id": 7,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0003.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0003.jpg",
+          "similarity": 0.8530603647232056
+        },
+        {
+          "node_id": 48,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0044.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0044.jpg",
+          "similarity": 0.8514012098312378
+        },
+        {
+          "node_id": 53,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0049.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0049.jpg",
+          "similarity": 0.8488103151321411
+        },
+        {
+          "node_id": 52,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0048.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0048.jpg",
+          "similarity": 0.8458670377731323
+        },
+        {
+          "node_id": 168,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0070.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0070.jpg",
+          "similarity": 0.8458266258239746
+        },
+        {
+          "node_id": 88,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0084.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0084.jpg",
+          "similarity": 0.8449990749359131
+        },
+        {
+          "node_id": 182,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0084.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0084.jpg",
+          "similarity": 0.841464638710022
+        },
+        {
+          "node_id": 119,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0021.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0021.jpg",
+          "similarity": 0.8407270908355713
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 10,
+          "best_similarity": 0.8689461350440979
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1493,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0001.jpg",
+        "crop_size": "224x224",
+        "source_folder": "fossil_grains/224x224",
+        "path": "cropped_grains/fossil_grains/224x224/fossil_grains_grain_0001.jpg"
+      },
+      "results": [
+        {
+          "node_id": 15,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0011.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0011.jpg",
+          "similarity": 0.8569273948669434
+        },
+        {
+          "node_id": 61,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0057.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0057.jpg",
+          "similarity": 0.856736421585083
+        },
+        {
+          "node_id": 1457,
+          "species": "corylus_heterophylla",
+          "display_species": "corylus_heterophylla",
+          "display_label": "Corylus Heterophylla",
+          "filename": "corylus_heterophylla_grain_0276.jpg",
+          "crop_size": "256x256",
+          "source_folder": "corylus_heterophylla/256x256",
+          "path": "cropped_grains/corylus_heterophylla/256x256/corylus_heterophylla_grain_0276.jpg",
+          "similarity": 0.8559269905090332
+        },
+        {
+          "node_id": 23,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0019.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0019.jpg",
+          "similarity": 0.853447437286377
+        },
+        {
+          "node_id": 180,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0082.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0082.jpg",
+          "similarity": 0.8507491946220398
+        },
+        {
+          "node_id": 127,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0029.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0029.jpg",
+          "similarity": 0.8471546173095703
+        },
+        {
+          "node_id": 106,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0008.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0008.jpg",
+          "similarity": 0.8457988500595093
+        },
+        {
+          "node_id": 186,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0088.jpg",
+          "crop_size": "288x288",
+          "source_folder": "alfaroa_williamsii/288x288",
+          "path": "cropped_grains/alfaroa_williamsii/288x288/alfaroa_williamsii_grain_0088.jpg",
+          "similarity": 0.8456804752349854
+        },
+        {
+          "node_id": 26,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0022.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0022.jpg",
+          "similarity": 0.845573902130127
+        },
+        {
+          "node_id": 6,
+          "species": "alfaroa_williamsii",
+          "display_species": "alfaroa_williamsii",
+          "display_label": "Alfaroa Williamsii",
+          "filename": "alfaroa_williamsii_grain_0002.jpg",
+          "crop_size": "256x256",
+          "source_folder": "alfaroa_williamsii/256x256",
+          "path": "cropped_grains/alfaroa_williamsii/256x256/alfaroa_williamsii_grain_0002.jpg",
+          "similarity": 0.839580237865448
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "alfaroa_williamsii",
+          "label": "Alfaroa Williamsii",
+          "count": 9,
+          "best_similarity": 0.8569273948669434
+        },
+        {
+          "species": "corylus_heterophylla",
+          "label": "Corylus Heterophylla",
+          "count": 1,
+          "best_similarity": 0.8559269905090332
+        }
+      ]
+    },
+    {
+      "query": {
+        "node_id": 1494,
+        "species": "fossil_grains",
+        "display_species": "fossil_pollen",
+        "display_label": "Fossil pollen",
+        "filename": "fossil_grains_grain_0000.jpg",
+        "crop_size": "256x256",
+        "source_folder": "fossil_grains/256x256",
+        "path": "cropped_grains/fossil_grains/256x256/fossil_grains_grain_0000.jpg"
+      },
+      "results": [
+        {
+          "node_id": 540,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0004.jpg",
+          "crop_size": "224x224",
+          "source_folder": "ambrosia_artemisifolia/224x224",
+          "path": "cropped_grains/ambrosia_artemisifolia/224x224/ambrosia_artemisifolia_grain_0004.jpg",
+          "similarity": 0.8551620244979858
+        },
+        {
+          "node_id": 390,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0148.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0148.jpg",
+          "similarity": 0.8512142300605774
+        },
+        {
+          "node_id": 256,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0014.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0014.jpg",
+          "similarity": 0.8413037657737732
+        },
+        {
+          "node_id": 400,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0158.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0158.jpg",
+          "similarity": 0.8407741785049438
+        },
+        {
+          "node_id": 386,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0144.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0144.jpg",
+          "similarity": 0.8378139734268188
+        },
+        {
+          "node_id": 247,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0005.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0005.jpg",
+          "similarity": 0.8374970555305481
+        },
+        {
+          "node_id": 391,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0149.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0149.jpg",
+          "similarity": 0.8370320796966553
+        },
+        {
+          "node_id": 255,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0013.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0013.jpg",
+          "similarity": 0.833663284778595
+        },
+        {
+          "node_id": 365,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0123.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0123.jpg",
+          "similarity": 0.8313984274864197
+        },
+        {
+          "node_id": 505,
+          "species": "ambrosia_artemisifolia",
+          "display_species": "ambrosia_artemisifolia",
+          "display_label": "Ambrosia Artemisifolia",
+          "filename": "ambrosia_artemisifolia_grain_0263.jpg",
+          "crop_size": "192x192",
+          "source_folder": "ambrosia_artemisifolia/192x192",
+          "path": "cropped_grains/ambrosia_artemisifolia/192x192/ambrosia_artemisifolia_grain_0263.jpg",
+          "similarity": 0.830927312374115
+        }
+      ],
+      "species_summary": [
+        {
+          "species": "ambrosia_artemisifolia",
+          "label": "Ambrosia Artemisifolia",
+          "count": 10,
+          "best_similarity": 0.8551620244979858
+        }
+      ]
+    }
+  ],
+  "source_embeddings": "embeddings/grain_embeddings.npy"
+}
