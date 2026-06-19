@@ -393,6 +393,24 @@ textarea {
   border-top: 1px solid var(--line);
 }
 
+.repo-link {
+  display: inline-flex;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .species-list {
   display: flex;
   flex-direction: column;

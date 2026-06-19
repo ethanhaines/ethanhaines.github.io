@@ -498,6 +498,9 @@ function ProjectAbstractPanel() {
         and structural similarity over color variation due to staining. Images are captured on a Keyence VHX-7000
         at 1000x magnification.
       </p>
+      <a className="repo-link" href="https://github.com/ethanhaines/NEST" target="_blank" rel="noreferrer">
+        View GitHub repository
+      </a>
     </aside>
   )
 }
