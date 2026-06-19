@@ -11,6 +11,9 @@ const LOCAL_DATA_URLS = {
   'edges.json': edgesLocalUrl,
   'species.json': speciesLocalUrl
 }
+const FOSSIL_DISPLAY_SPECIES = 'fossil_pollen'
+const FOSSIL_DISPLAY_LABEL = 'Fossil pollen'
+const FOSSIL_COLOR_HEX = '#f21f2f'
 const DISPLAY_GLOBAL_SCALE = 0.95
 const DISPLAY_SHAPE_MODE = String(import.meta.env.VITE_DISPLAY_SHAPE_MODE ?? 'freeform').toLowerCase()
 const DISPLAY_SPHERIFY_AMOUNT = Number.isFinite(Number(import.meta.env.VITE_DISPLAY_SPHERIFY_AMOUNT))
@@ -107,9 +110,31 @@ function hexToRgb01(hex) {
 }
 
 function prettifySpeciesName(value) {
+  if (value === FOSSIL_DISPLAY_SPECIES) return FOSSIL_DISPLAY_LABEL
+
   return String(value ?? '')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, (match) => match.toUpperCase())
+}
+
+function isFossilPollenNode(node) {
+  const searchable = [
+    node?.species,
+    node?.source_folder,
+    node?.path,
+    node?.filename,
+    node?.label,
+    node?.query_group
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+
+  return searchable.includes('fossil')
+}
+
+function getDisplaySpecies(node) {
+  return isFossilPollenNode(node) ? FOSSIL_DISPLAY_SPECIES : node?.species
 }
 
 function isVec3(value) {
@@ -201,10 +226,15 @@ function processPackage({ manifest, nodes, edges, species }) {
   const displayField = chooseDisplayField(manifest, nodes)
   const sortedNodes = [...nodes]
     .sort((a, b) => a.id - b.id)
-    .map((node) => ({
-      ...node,
-      displayPosition: stylizeDisplayPosition(getDisplayPosition(node, displayField))
-    }))
+    .map((node) => {
+      const isFossilPollen = isFossilPollenNode(node)
+      return {
+        ...node,
+        isFossilPollen,
+        displaySpecies: isFossilPollen ? FOSSIL_DISPLAY_SPECIES : getDisplaySpecies(node),
+        displayPosition: stylizeDisplayPosition(getDisplayPosition(node, displayField))
+      }
+    })
   const speciesByKey = new Map(species.map((entry) => [entry.species, entry]))
   const indexById = new Map()
 
@@ -219,7 +249,9 @@ function processPackage({ manifest, nodes, edges, species }) {
     positions[o + 1] = node.displayPosition.y
     positions[o + 2] = node.displayPosition.z
 
-    const colorHex = speciesByKey.get(node.species)?.color?.hex ?? '#111111'
+    const colorHex = node.isFossilPollen
+      ? FOSSIL_COLOR_HEX
+      : speciesByKey.get(node.species)?.color?.hex ?? '#111111'
     const [r, g, b] = hexToRgb01(colorHex)
     colors[o] = r
     colors[o + 1] = g
@@ -253,9 +285,38 @@ function processPackage({ manifest, nodes, edges, species }) {
     edgeCursor += 6
   }
 
-  const speciesLegend = [...species]
-    .sort((a, b) => b.count - a.count)
-    .map((entry) => ({ ...entry, label: prettifySpeciesName(entry.species) }))
+  const legendByDisplaySpecies = new Map()
+
+  sortedNodes.forEach((node) => {
+    const displaySpecies = node.displaySpecies ?? node.species
+    const existing = legendByDisplaySpecies.get(displaySpecies)
+
+    if (existing) {
+      existing.count += 1
+      return
+    }
+
+    const sourceEntry = speciesByKey.get(node.species)
+    const isFossilPollen = displaySpecies === FOSSIL_DISPLAY_SPECIES
+    legendByDisplaySpecies.set(displaySpecies, {
+      ...(sourceEntry ?? {}),
+      species: displaySpecies,
+      rawSpecies: isFossilPollen ? null : node.species,
+      label: prettifySpeciesName(displaySpecies),
+      count: 1,
+      isFossilPollen,
+      color: {
+        ...(sourceEntry?.color ?? {}),
+        hex: isFossilPollen ? FOSSIL_COLOR_HEX : sourceEntry?.color?.hex ?? '#111111'
+      }
+    })
+  })
+
+  const speciesLegend = [...legendByDisplaySpecies.values()].sort((a, b) => {
+    if (a.isFossilPollen) return -1
+    if (b.isFossilPollen) return 1
+    return b.count - a.count
+  })
 
   return {
     manifest,
@@ -264,6 +325,7 @@ function processPackage({ manifest, nodes, edges, species }) {
     edges: normalizedEdges,
     species,
     speciesLegend,
+    displaySpeciesCount: speciesLegend.length,
     positions,
     colors,
     baseEdgePositions:

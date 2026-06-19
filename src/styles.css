@@ -389,12 +389,22 @@ textarea {
   clip-path: none;
 }
 
+.species-row.is-fossil-pollen {
+  background:
+    linear-gradient(90deg, rgba(242, 31, 47, 0.12), rgba(255, 255, 255, 0.68));
+}
+
 .species-dot {
   width: 4px;
   height: 18px;
   border-radius: 0;
   justify-self: center;
   box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.05);
+}
+
+.species-dot.is-fossil-pollen {
+  animation: fossilPulse 1.9s ease-in-out infinite;
+  box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.12), 0 0 18px rgba(242, 31, 47, 0.38);
 }
 
 .species-name {
@@ -975,6 +985,24 @@ textarea {
 @media (hover: none), (pointer: coarse) {
   .node-tooltip {
     display: none;
+  }
+}
+
+@keyframes fossilPulse {
+  0%,
+  100% {
+    background-color: #090202;
+  }
+
+  50% {
+    background-color: #ff2438;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .species-dot.is-fossil-pollen {
+    animation: none;
+    background-color: #ff2438 !important;
   }
 }
 

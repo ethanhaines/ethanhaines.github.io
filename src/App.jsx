@@ -222,7 +222,7 @@ function TopInfoPanel({ data, onReload }) {
           <div className="panel-row">
             <span className="mono-label">Species</span>
             <span className="panel-value panel-value-single">
-              {data.manifest?.counts?.species ?? data.species.length}
+              {data.displaySpeciesCount ?? data.manifest?.counts?.species ?? data.species.length}
             </span>
           </div>
         </>
@@ -241,9 +241,12 @@ function SpeciesRail({ speciesLegend }) {
       <div className="mono-label rail-title">Species</div>
       <div className="species-list">
         {speciesLegend.map((entry) => (
-          <div key={entry.species} className="species-row">
+          <div
+            key={entry.species}
+            className={`species-row${entry.isFossilPollen ? ' is-fossil-pollen' : ''}`}
+          >
             <span
-              className="species-dot"
+              className={`species-dot${entry.isFossilPollen ? ' is-fossil-pollen' : ''}`}
               style={{ backgroundColor: entry.color?.hex ?? '#111111' }}
               aria-hidden="true"
             />
@@ -275,7 +278,7 @@ function BottomDetailPanel({ node, data, selectedNode, isBottomRight = false }) 
       <div className="detail-grid">
         <div className="detail-item">
           <span className="detail-key">Species</span>
-          <span className="detail-value">{prettifySpecies(node.species)}</span>
+          <span className="detail-value">{prettifySpecies(node.displaySpecies ?? node.species)}</span>
         </div>
         <div className="detail-item">
           <span className="detail-key">Node ID</span>
@@ -384,7 +387,7 @@ function Tooltip({ hoverState, node }) {
   return (
     <div className="node-tooltip" style={style} role="status">
       <div className="mono-label">Hover</div>
-      <div className="tooltip-title">{prettifySpecies(node.species)}</div>
+      <div className="tooltip-title">{prettifySpecies(node.displaySpecies ?? node.species)}</div>
       <div className="tooltip-meta">{node.filename}</div>
       <div className="tooltip-meta">{node.crop_size}</div>
     </div>
@@ -409,6 +412,8 @@ function ProjectPlaceholder({ activeTab }) {
 }
 
 function prettifySpecies(value) {
+  if (value === 'fossil_pollen') return 'Fossil pollen'
+
   return String(value ?? '')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, (match) => match.toUpperCase())

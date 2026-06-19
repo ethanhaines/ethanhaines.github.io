@@ -5,6 +5,8 @@ import * as THREE from 'three'
 
 const GRAPH_SCALE = 1.45
 const CLICK_ROTATION_ASSIST_MS = 1000
+const FOSSIL_PULSE_RED = new THREE.Color('#ff2438')
+const FOSSIL_PULSE_BLACK = new THREE.Color('#090202')
 
 export default function HypercubeCanvas({
   data,
@@ -56,6 +58,7 @@ export default function HypercubeCanvas({
           onHoverChange={onHoverChange}
           onSelectIndex={onSelectIndex}
           autoRotate={!isInteracting && !reducedMotion}
+          reducedMotion={reducedMotion}
           rotationAssistStartedAtRef={rotationAssistStartedAtRef}
           onRotationAssistTrigger={triggerRotationAssist}
         />
@@ -83,6 +86,7 @@ function NetworkObject({
   onHoverChange,
   onSelectIndex,
   autoRotate,
+  reducedMotion,
   rotationAssistStartedAtRef,
   onRotationAssistTrigger
 }) {
@@ -90,10 +94,18 @@ function NetworkObject({
   const crystalMeshRef = useRef(null)
   const rotationFactorRef = useRef(1)
   const wobbleTimeRef = useRef(0)
+  const fossilPulseColorRef = useRef(new THREE.Color())
 
   const speciesColorByKey = useMemo(() => {
     return new Map(data.speciesLegend.map((entry) => [entry.species, entry.color?.hex ?? '#111111']))
   }, [data.speciesLegend])
+
+  const fossilNodeIndices = useMemo(() => {
+    return data.nodes.reduce((indices, node, index) => {
+      if (node.isFossilPollen) indices.push(index)
+      return indices
+    }, [])
+  }, [data.nodes])
 
   const baseEdgesGeometry = useMemo(() => {
     const geometry = new THREE.BufferGeometry()
@@ -141,7 +153,7 @@ function NetworkObject({
     }
   }, [baseEdgesGeometry])
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
     if (!groupRef.current) return
 
     const now = performance.now()
@@ -158,6 +170,18 @@ function NetworkObject({
     groupRef.current.rotation.y += delta * 0.12 * rotationFactor
     groupRef.current.rotation.x = 0.36 + Math.sin(wobbleT * 0.12) * 0.07
     groupRef.current.rotation.z = 0.08 + Math.cos(wobbleT * 0.09) * 0.035
+
+    if (fossilNodeIndices.length > 0 && crystalMeshRef.current) {
+      const mesh = crystalMeshRef.current
+      const pulse = reducedMotion ? 1 : 0.5 + Math.sin(state.clock.elapsedTime * 2.8) * 0.5
+      const color = fossilPulseColorRef.current.copy(FOSSIL_PULSE_BLACK).lerp(FOSSIL_PULSE_RED, pulse)
+
+      for (const index of fossilNodeIndices) {
+        mesh.setColorAt(index, color)
+      }
+
+      if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true
+    }
   })
 
   const hoveredNode = hoveredIndex == null ? null : data.nodes[hoveredIndex]
@@ -205,7 +229,7 @@ function NetworkObject({
       {hoveredNode ? (
         <NodeMarker
           node={hoveredNode}
-          color={speciesColorByKey.get(hoveredNode.species) ?? '#111111'}
+          color={speciesColorByKey.get(hoveredNode.displaySpecies ?? hoveredNode.species) ?? '#111111'}
           scale={0.036}
           opacity={0.58}
           wireOpacity={0.42}
@@ -215,7 +239,7 @@ function NetworkObject({
       {selectedNode ? (
         <NodeMarker
           node={selectedNode}
-          color={speciesColorByKey.get(selectedNode.species) ?? '#111111'}
+          color={speciesColorByKey.get(selectedNode.displaySpecies ?? selectedNode.species) ?? '#111111'}
           scale={0.045}
           opacity={0.86}
           wireOpacity={0.82}
