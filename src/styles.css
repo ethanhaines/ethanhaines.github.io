@@ -596,8 +596,7 @@ textarea {
 }
 
 .query-selector {
-  position: sticky;
-  top: 0;
+  position: relative;
 }
 
 .query-list {
