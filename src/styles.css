@@ -470,7 +470,7 @@ textarea {
 
 .query-panel.is-open {
   width: min(700px, calc(100vw - 48px));
-  max-height: min(640px, max(360px, calc(100vh - 320px)));
+  max-height: min(545px, max(300px, calc(100vh - 320px)));
   padding: 10px;
   overflow: auto;
 }
@@ -670,7 +670,7 @@ textarea {
 
 .query-preview-thumb {
   margin-top: 0;
-  max-width: 230px;
+  max-width: 270px;
 }
 
 .query-preview-title,
