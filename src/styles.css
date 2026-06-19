@@ -652,9 +652,26 @@ textarea {
   min-width: 0;
 }
 
+.query-preview-compact {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.45fr) minmax(0, 0.55fr);
+  gap: 8px;
+  align-items: start;
+  margin-top: 7px;
+}
+
+.query-preview-copy {
+  min-width: 0;
+}
+
 .query-thumb {
   margin-top: 7px;
   aspect-ratio: 1 / 1;
+}
+
+.query-preview-thumb {
+  margin-top: 0;
+  max-width: 230px;
 }
 
 .query-preview-title,
@@ -1104,7 +1121,8 @@ textarea {
   }
 
   .query-workspace,
-  .query-comparison {
+  .query-comparison,
+  .query-preview-compact {
     grid-template-columns: 1fr;
   }
 

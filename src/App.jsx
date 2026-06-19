@@ -384,18 +384,22 @@ function QueryPanel({ data, isOpen, onToggle, onSelectIndex }) {
               {selectedQuery ? (
                 <div className="query-preview">
                   <div className="mono-label">Selected Fossil</div>
-                  <ThumbnailPreview
-                    src={buildThumbnailUrl(selectedQuery.query)}
-                    alt={`${selectedQuery.query.filename} thumbnail`}
-                    className="query-thumb"
-                  />
-                  <div className="query-preview-title">{selectedQuery.query.filename}</div>
-                  <div className="query-preview-meta">
-                    Node {selectedQuery.query.node_id} | {selectedQuery.query.crop_size}
+                  <div className="query-preview-compact">
+                    <ThumbnailPreview
+                      src={buildThumbnailUrl(selectedQuery.query)}
+                      alt={`${selectedQuery.query.filename} thumbnail`}
+                      className="query-thumb query-preview-thumb"
+                    />
+                    <div className="query-preview-copy">
+                      <div className="query-preview-title">{selectedQuery.query.filename}</div>
+                      <div className="query-preview-meta">
+                        Node {selectedQuery.query.node_id} | {selectedQuery.query.crop_size}
+                      </div>
+                      <button className="ghost-button query-run-button" type="button" onClick={handleRunQuery}>
+                        Query This Fossil
+                      </button>
+                    </div>
                   </div>
-                  <button className="ghost-button query-run-button" type="button" onClick={handleRunQuery}>
-                    Query This Fossil
-                  </button>
                 </div>
               ) : null}
 
