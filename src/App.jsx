@@ -142,11 +142,9 @@ export default function App() {
 
             <div className="left-priority-stack">
               <ProjectAbstractPanel />
-              <TopInfoPanel
-                data={data}
-                onReload={reload}
-              />
             </div>
+
+            {data ? <DataBadge data={data} /> : null}
 
             <QueryPanel
               data={data}
@@ -211,29 +209,11 @@ function ResumeView() {
   )
 }
 
-function TopInfoPanel({ data, onReload }) {
+function DataBadge({ data }) {
   return (
-    <section className="floating-panel top-panel" aria-live="polite">
-      {data ? (
-        <>
-          <div className="panel-row">
-            <span className="mono-label">Nodes</span>
-            <span className="panel-value panel-value-single">
-              {data.manifest?.counts?.nodes ?? data.nodes.length}
-            </span>
-          </div>
-          <div className="panel-row">
-            <span className="mono-label">Species</span>
-            <span className="panel-value panel-value-single">
-              {data.displaySpeciesCount ?? data.manifest?.counts?.species ?? data.species.length}
-            </span>
-          </div>
-        </>
-      ) : null}
-
-      <button className="ghost-button" type="button" onClick={onReload}>
-        Reload Data
-      </button>
+    <section className="data-badge" aria-label="Dataset summary">
+      <span>{data.manifest?.counts?.nodes ?? data.nodes.length} nodes</span>
+      <span>{data.displaySpeciesCount ?? data.manifest?.counts?.species ?? data.species.length} groups</span>
     </section>
   )
 }
