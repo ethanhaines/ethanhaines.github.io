@@ -114,9 +114,23 @@ function hexToRgb01(hex) {
 function prettifySpeciesName(value) {
   if (value === FOSSIL_DISPLAY_SPECIES) return FOSSIL_DISPLAY_LABEL
 
-  return String(value ?? '')
+  const normalized = String(value ?? '')
     .replace(/_/g, ' ')
-    .replace(/\b\w/g, (match) => match.toUpperCase())
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  if (!normalized) return ''
+
+  const parts = normalized.toLowerCase().split(' ')
+  if (parts.length >= 2 && parts.every((part) => /^[a-z-]+$/.test(part))) {
+    return [capitalizeWord(parts[0]), ...parts.slice(1)].join(' ')
+  }
+
+  return normalized.replace(/\b\w/g, (match) => match.toUpperCase())
+}
+
+function capitalizeWord(value) {
+  return value ? value.charAt(0).toUpperCase() + value.slice(1) : ''
 }
 
 function isFossilPollenNode(node) {
