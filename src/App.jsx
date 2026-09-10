@@ -214,6 +214,7 @@ function DataBadge({ data }) {
     <section className="data-badge" aria-label="Dataset summary">
       <span>{data.manifest?.counts?.nodes ?? data.nodes.length} nodes</span>
       <span>{data.displaySpeciesCount ?? data.manifest?.counts?.species ?? data.species.length} groups</span>
+      <span className="site-updated">Updated: <time dateTime={__SITE_UPDATED_DATE__}>{__SITE_UPDATED_DATE__}</time></span>
     </section>
   )
 }

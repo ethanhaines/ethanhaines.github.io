@@ -1,6 +1,6 @@
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
 const GRAPH_SCALE = 1.45
@@ -16,23 +16,41 @@ export default function HypercubeCanvas({
   onSelectIndex
 }) {
   const [isInteracting, setIsInteracting] = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(false)
   const rotationAssistStartedAtRef = useRef(-Infinity)
+  const interactionActiveRef = useRef(false)
 
-  useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setReducedMotion(media.matches)
-    update()
-    media.addEventListener?.('change', update)
-
-    return () => {
-      media.removeEventListener?.('change', update)
-    }
+  const triggerRotationAssist = useCallback(() => {
+    rotationAssistStartedAtRef.current = performance.now()
   }, [])
 
-  function triggerRotationAssist() {
-    rotationAssistStartedAtRef.current = performance.now()
-  }
+  const startInteraction = useCallback(() => {
+    interactionActiveRef.current = true
+    setIsInteracting(true)
+  }, [])
+  const endInteraction = useCallback(() => {
+    if (!interactionActiveRef.current) return
+    interactionActiveRef.current = false
+    setIsInteracting(false)
+    triggerRotationAssist()
+  }, [triggerRotationAssist])
+
+  useEffect(() => {
+    // A release outside the canvas or an interrupted gesture must not leave
+    // rotation permanently paused while waiting for OrbitControls' end event.
+    const recoverPointer = (event) => {
+      if (event.buttons === 0) endInteraction()
+    }
+    window.addEventListener('pointerup', endInteraction)
+    window.addEventListener('pointercancel', endInteraction)
+    window.addEventListener('blur', endInteraction)
+    window.addEventListener('pointermove', recoverPointer)
+    return () => {
+      window.removeEventListener('pointerup', endInteraction)
+      window.removeEventListener('pointercancel', endInteraction)
+      window.removeEventListener('blur', endInteraction)
+      window.removeEventListener('pointermove', recoverPointer)
+    }
+  }, [endInteraction])
 
   return (
     <div className="canvas-shell" aria-label="Interactive pollen embedding graph">
@@ -57,8 +75,7 @@ export default function HypercubeCanvas({
           selectedIndex={selectedIndex}
           onHoverChange={onHoverChange}
           onSelectIndex={onSelectIndex}
-          autoRotate={!isInteracting && !reducedMotion}
-          reducedMotion={reducedMotion}
+          autoRotate={!isInteracting}
           rotationAssistStartedAtRef={rotationAssistStartedAtRef}
           onRotationAssistTrigger={triggerRotationAssist}
         />
@@ -71,8 +88,8 @@ export default function HypercubeCanvas({
           rotateSpeed={0.65}
           zoomSpeed={0.8}
           dampingFactor={0.08}
-          onStart={() => setIsInteracting(true)}
-          onEnd={() => setIsInteracting(false)}
+          onStart={startInteraction}
+          onEnd={endInteraction}
         />
       </Canvas>
     </div>
@@ -86,7 +103,6 @@ function NetworkObject({
   onHoverChange,
   onSelectIndex,
   autoRotate,
-  reducedMotion,
   rotationAssistStartedAtRef,
   onRotationAssistTrigger
 }) {
@@ -173,7 +189,7 @@ function NetworkObject({
 
     if (fossilNodeIndices.length > 0 && crystalMeshRef.current) {
       const mesh = crystalMeshRef.current
-      const pulse = reducedMotion ? 1 : 0.5 + Math.sin(state.clock.elapsedTime * 2.8) * 0.5
+      const pulse = 0.5 + Math.sin(state.clock.elapsedTime * 2.8) * 0.5
       const color = fossilPulseColorRef.current.copy(FOSSIL_PULSE_BLACK).lerp(FOSSIL_PULSE_RED, pulse)
 
       for (const index of fossilNodeIndices) {

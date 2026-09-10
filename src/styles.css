@@ -234,6 +234,11 @@ textarea {
   border-left: 1px solid rgba(17, 17, 17, 0.22);
 }
 
+.site-updated {
+  text-transform: none;
+  white-space: nowrap;
+}
+
 .left-priority-stack {
   position: absolute;
   z-index: 10;
@@ -1270,13 +1275,6 @@ textarea {
 
   50% {
     background-color: #ff2438;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .species-dot.is-fossil-pollen {
-    animation: none;
-    background-color: #ff2438 !important;
   }
 }
 
